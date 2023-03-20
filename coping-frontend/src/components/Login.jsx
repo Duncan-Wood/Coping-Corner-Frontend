@@ -7,8 +7,8 @@ import { UserProvider } from "../UserProvider";
 
 export default function Login() {
     let navigate = useNavigate()
-  const { user, setUser } = useContext(UserProvider);
-  const { authenticated, toggleAuthenticated } = useContext(UserProvider);
+  const {setUser } = useContext(UserProvider);
+  const {toggleAuthenticated } = useContext(UserProvider);
 
   const [formValues, setFormValues] = useState({ username: "", password: "" });
 

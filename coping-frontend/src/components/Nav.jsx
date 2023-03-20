@@ -3,8 +3,8 @@ import { UserProvider } from '../UserProvider'
 import { Link } from 'react-router-dom'
 
 export default function Nav(){
-    const {user, setUser} = useContext(UserProvider)
-    const {authenticated, toggleAuthenticated} = useContext(UserProvider)
+    const {user} = useContext(UserProvider)
+    const {authenticated} = useContext(UserProvider)
     let authenticatedOptions
     if (user) {
         authenticatedOptions = (
@@ -17,7 +17,7 @@ export default function Nav(){
                     <Link to='/post'><button>add post</button></Link>
                     <Link to='/toolkit'><button>toolkit</button></Link>
                     <Link to='/resources'><button>resources</button></Link>
-                    <Link to='/logout'><button>logout</button></Link>
+                    <Link to='/'><button>logout</button></Link>
                 </div>
             </div>
         )

@@ -9,6 +9,7 @@ import Dashboard from './Dashboard'
 import Profile from './Profile'
 import Post from './Post'
 import Toolkit from './Toolkit'
+import LoggedHome from './LoggedHome'
 
 export default function Main() {
   // const [resources, setResources] = useState([])
@@ -28,6 +29,7 @@ export default function Main() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/login" element={<Login />}/>
+        <Route path ="/LoggedHome" element={<LoggedHome/>}/>
         <Route path="/register" element={<Register />}/>
         <Route path="/resources" element={<Resources />}/>
         <Route path="/profile" element = {<Profile />} />

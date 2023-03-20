@@ -3,8 +3,8 @@ import { UserProvider } from '../UserProvider'
 import { Link } from 'react-router-dom'
 
 export default function Nav(){
-    const {user, setUser} = useContext(UserProvider)
-    const {authenticated, toggleAuthenticated} = useContext(UserProvider)
+    const {user} = useContext(UserProvider)
+    const {authenticated} = useContext(UserProvider)
     let authenticatedOptions
     if (user) {
         authenticatedOptions = (

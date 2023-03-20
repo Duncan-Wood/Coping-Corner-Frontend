@@ -17,7 +17,7 @@ export default function Nav(){
                     <Link to='/post'><button>add post</button></Link>
                     <Link to='/toolkit'><button>toolkit</button></Link>
                     <Link to='/resources'><button>resources</button></Link>
-                    <Link to='/logout'><button>logout</button></Link>
+                    <Link to='/'><button>logout</button></Link>
                 </div>
             </div>
         )

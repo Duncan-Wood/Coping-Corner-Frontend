@@ -4,6 +4,11 @@ import { Route, Routes } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
 import Home from "./Home";
+import Resources from './Resources'
+import Dashboard from './Dashboard'
+import Profile from './Profile'
+import Post from './Post'
+import Toolkit from './Toolkit'
 
 export default function Main() {
   // const [resources, setResources] = useState([])
@@ -24,6 +29,12 @@ export default function Main() {
         <Route path="/" element={<Home />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register />}/>
+        <Route path="/resources" element={<Resources />}/>
+        <Route path="/profile" element = {<Profile />} />
+        <Route path="/dashboard" element={<Dashboard />}/>
+        <Route path="/post" element={<Post />}/>
+        <Route path = "/toolkit" element={<Toolkit />} />
+
         {/* <Route path="/resources" element={<Resources />}/> */}
       </Routes>
     </div>

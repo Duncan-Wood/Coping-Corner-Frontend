@@ -27,10 +27,10 @@ export default function Resources() {
     handleResources();
   }, []);
 
-    const handleFilteredResources = resources.filter((resource) => {
-        resource.user_id === 1
-        setAdminResources()
-    }
+    // const handleFilteredResources = resources.filter((resource) => {
+    //     resource.user_id === 1
+    //     setAdminResources()
+    // }
   // for (let i = 0; i < resources.length; i++){
   // for (let t = 0; t <arrayTypes.length; t++){
   //     if (resources[i].arrayTypes[t] == true){

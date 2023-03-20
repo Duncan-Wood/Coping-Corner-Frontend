@@ -13,11 +13,12 @@
 
 button{
   font-family: Quicksand, sans-serif;
-  font-size: 90%;
+  font-size: 80%;
   font-weight:700;
   border-radius: 30px;
   padding: 10px;
   border: 3px solid var(--md-sys-color-outline);
+ text-align:center;
 }
 
 button:hover{
@@ -220,4 +221,64 @@ h1{
 /********dashboard styles*******/
 #go-back{
   margin-top:10px;
+}
+
+
+
+/*****register styles*****/
+.nli{
+  background-color: var(--md-sys-color-surface-variant);
+  height: 100vh;
+}
+
+.formwrapper{
+  padding:100px;
+}
+
+.login, .register{
+  width: 400px;
+  border-radius:30px;
+  margin: 0 auto;
+  padding-top: 40px;
+  background-color: var(--md-sys-color-tertiary);
+  color: var(--md-sys-color-on-tertiary);
+  text-align:left;
+  padding:15px;
+  line-height:2em;
+
+}
+
+form button{
+  margin-top:5px;
+  background-color:var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  width: 50%;
+  font-size: 1em;
+}
+
+form input{
+  font-family: Quicksand, sans-serif;
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
+  margin-left:5px;
+  margin-bottom:20px;
+  border-radius:30px;
+  width: 90%;
+  padding: 10px;
+  font-weight:700;
+}
+
+.login-welcome{
+  font-weight:400;
+  width: 30%;
+  margin: 0 auto;
+  margin-bottom:40px;
+}
+
+.register-welcome{
+  font-weight:400;
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom:40px;
+  color: var(--md-sys-color-secondary)
 }

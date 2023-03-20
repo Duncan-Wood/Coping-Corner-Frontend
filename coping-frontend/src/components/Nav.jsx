@@ -16,7 +16,7 @@ export default function Nav(){
                 <div className = "nav-btn">
                     <Link to='/profile'><button>profile</button></Link>
                     <Link to='/dashboard'><button>dashboard</button></Link>
-                    <Link to='/post'><button>add post</button></Link>
+                    <Link to='/post'><button>+ add post</button></Link>
                     <Link to='/toolkit'><button>toolkit</button></Link>
                     <Link to='/resources'><button>resources</button></Link>
                     <Link to='/'><button onClick={handleLogOut}>logout</button></Link>

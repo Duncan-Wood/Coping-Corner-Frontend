@@ -14,7 +14,7 @@ export default function Register() {
 
   const handleChange = (e) => {
     e.preventDefault()
-    setFormValues({ ...formValues, [e.target.username]: e.target.value });
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
     console.log(formValues);
   };
 

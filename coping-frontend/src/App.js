@@ -8,12 +8,13 @@ import { CheckSession } from "./Services/Auth";
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
-  
+  const [mood, setMood] = useState(null)
   const [toolkit, setToolkit] = useState([])
 
   const handleLogOut = () => {
     //Reset all auth related state and clear localStorage
     setUser(null);
+    setMood (null);
     toggleAuthenticated(false);
     localStorage.clear();
   };
@@ -33,7 +34,7 @@ function App() {
 
   return (
     <div className="App">
-      <UserProvider.Provider value={{user, setUser, toolkit, setToolkit, authenticated, toggleAuthenticated, handleLogOut}}>
+      <UserProvider.Provider value={{user, setUser, toolkit, setToolkit, authenticated, toggleAuthenticated, handleLogOut, mood, setMood}}>
         <header className="App-header">
           <Header />
         </header>

@@ -3,3 +3,31 @@
 }
 
 
+.mood-selection{
+  margin: 0 auto;
+  display:grid;
+  height: 90%;
+  width: 60%;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  align-content: center;
+  grid-gap:10px;
+}
+.mood-btn{
+  background-color:black;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  color:white;
+}
+#emergencydiv{
+  grid-column: 1 / span 5;
+  
+}
+
+#emergency{
+  width: 65%;
+  border-radius: 30px;
+  background-color:red;
+  
+}

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 export default function Nav(){
     const {user} = useContext(UserProvider)
     const {authenticated} = useContext(UserProvider)
+    const {handleLogOut} = useContext(UserProvider)
     let authenticatedOptions
     if (user) {
         authenticatedOptions = (
@@ -17,7 +18,7 @@ export default function Nav(){
                     <Link to='/post'><button>add post</button></Link>
                     <Link to='/toolkit'><button>toolkit</button></Link>
                     <Link to='/resources'><button>resources</button></Link>
-                    <Link to='/'><button>logout</button></Link>
+                    <Link to='/'><button onClick={handleLogOut}>logout</button></Link>
                 </div>
             </div>
         )

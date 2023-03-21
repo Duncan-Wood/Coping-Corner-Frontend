@@ -8,3 +8,4 @@ export const GetResources = async () => {
     throw error
   }
 }
+

@@ -9,6 +9,7 @@ export const GetResources = async () => {
   }
 }
 
+
 export const CreateResource = async (data) => {
   try {
     const res = await Client.post('/resource', data)

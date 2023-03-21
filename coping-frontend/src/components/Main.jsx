@@ -10,6 +10,7 @@ import Profile from './Profile'
 import Post from './Post'
 import Toolkit from './Toolkit'
 import LoggedHome from './LoggedHome'
+import EditProfile from "./EditProfile";
 
 export default function Main() {
   // const [resources, setResources] = useState([])
@@ -36,6 +37,7 @@ export default function Main() {
         <Route path="/dashboard" element={<Dashboard />}/>
         <Route path="/post" element={<Post />}/>
         <Route path = "/toolkit" element={<Toolkit />} />
+        <Route exact path="/edit-profile" component={<EditProfile />} />
 
         {/* <Route path="/resources" element={<Resources />}/> */}
       </Routes>

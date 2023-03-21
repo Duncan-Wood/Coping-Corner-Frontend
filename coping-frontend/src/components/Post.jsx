@@ -148,11 +148,3 @@ export default function Post() {
             type="text"
             name="resourceURL" />
         </div>
-
-        <input type="submit" value="SHARE POST"></input> 
-        {/* disabled={!formValues.title || !formValues.preview_text || !formValues.content || !formValues.type || !formValues.feeling || !formValues.time_requirement} /> */}
-
-
-      </form>
-    </div>
-  )}

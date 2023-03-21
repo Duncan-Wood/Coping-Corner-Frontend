@@ -34,11 +34,12 @@ export default function Register() {
     navigate("/login");
   };
   return (
-    <div className="register">
-      <div>
-        <form onSubmit={handleSubmit}>
+    <div className="nli">
+      <div className="formwrapper">
+        <h1 className = "register-welcome">Join our corner to get free access to a community library of support resources.</h1>
+        <form className="register" onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username">username</label><br></br>
             <input
               onChange={handleChange}
               name="username"
@@ -48,7 +49,7 @@ export default function Register() {
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">email</label><br></br>
             <input
               onChange={handleChange}
               name="email"
@@ -60,7 +61,7 @@ export default function Register() {
           </div>
 
           <div className="input-wrapper">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">password</label><br></br>
             <input
               onChange={handleChange}
               type="password"
@@ -70,7 +71,7 @@ export default function Register() {
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="confirmPassword">Confirm Password</label>
+            <label htmlFor="confirmPassword">confirm password</label><br></br>
             <input
               onChange={handleChange}
               type="password"
@@ -87,7 +88,7 @@ export default function Register() {
                 formValues.confirmPassword === formValues.password)
             }
           >
-            Sign In
+            Register
           </button>
         </form>
       </div>

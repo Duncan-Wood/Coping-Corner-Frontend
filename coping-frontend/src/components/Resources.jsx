@@ -7,83 +7,62 @@ export default function Resources() {
   const { user } = useContext(UserProvider);
   const { authenticated } = useContext(UserProvider);
   const [resources, setResources] = useState([]);
+  const [adminResources, setAdminResources] = useState([])
   let navigate = useNavigate();
 
-  // let arrayTypes = [
-  //   "type_meditation",
-  //   "type_movement",
-  //   "type_distraction",
-  //   "type_grounding",
-  //   "çtype_affirmation",
-  // ];
+  let arrayTypes = [
+    "type_meditation",
+    "type_movement",
+    "type_distraction",
+    "type_grounding",
+    "type_affirmation",
+  ];
 
   useEffect(() => {
     const handleResources = async () => {
       const results = await GetResources();
       setResources(results);
+      console.log(resources);
     };
     handleResources();
   }, []);
 
-  const handleFilteredResources = () => {
-    return resources.filter((resource) => resource.user_id === 1);
-  };
-  const filteredResources =
-    !user && !authenticated ? handleFilteredResources() : resources;
+    // const handleFilteredResources = resources.filter((resource) => {
+    //     resource.user_id === 1
+    //     setAdminResources()
+    // }
+  // for (let i = 0; i < resources.length; i++){
+  // for (let t = 0; t <arrayTypes.length; t++){
+  //     if (resources[i].arrayTypes[t] == true){
+  //         resources[i].list_types.push(resources[i])
+  //     }
+  // }}
 
-  let authenticatedResources;
-  if (user) {
-    authenticatedResources = (
-      <div className="user_feed">
-        <div className="logged_resources_header">
-          <h1>POPULAR RESOURCES</h1>
-        </div>
-        {filteredResources.map(
-          (resource) => (
-            console.log(filteredResources),
-            (
-              <div className="resource-card" key={resource.id}>
-                <h3>{resource.title}</h3>
-                <h5>by: {resource.User.username}</h5>
-              </div>
-            )
-          )
-        )}
-      </div>
-    );
-  }
-
-  const publicResources = (
-    <div className="user_feed">
-      <div className="unlogged-resources-header">
-        <h1>POPULAR RESOURCES</h1>
-        <h2>BY COPING CORNER HQ</h2>
-      </div>
-      <div className="please-register">
-        <h5>
-          TO VIEW OUR WHOLE LIBRARY OF RESOURCES, PLEASE REGISTER A
-          <span style={{ color: "cyan" }}> FREE ACCOUNT </span>
-          OR LOG IN NOW!
-        </h5>
-      </div>
-      {filteredResources.map(
-        (resource) => (
-          console.log(filteredResources),
-          (
-            <div className="resource-card" key={resource.id}>
-              <h3>{resource.title}</h3>
-              <h5>by: {resource.User.username}</h5>
-            </div>
-          )
-        )
-      )}
-    </div>
-  );
-
+  if (user && authenticated) {
   return (
-    <div>
-      <h1>test</h1>
-      {authenticated && user ? authenticatedResources : publicResources}
+    <div className="user_feed">
+      {resources.map((resource) => (
+        <div className="resource-card" key={resource.id}>
+          <h3>{resource.title}</h3>
+          <h5>by: {resource.User.username}</h5>
+          {/* arrayTypes.map((type) => (
+                       { for (let i = 0; i < arrayTypes.length; i++)
+                          if(resources.arrayTypes[i]){
+                            <h6>resource.arrayTypes[i]</h6>
+                          }))
+                    {{     
+                            }
+                     } }
+                    <h4>{resource.list_types}</h4> */}
+        </div>
+      ))}
     </div>
-  );
+  )
+} else {
+    return (
+        <div>
+
+        </div>
+    )
+}
 }

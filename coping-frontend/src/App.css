@@ -1,33 +1,284 @@
+@import url(./css/tokens.css);
+@import url(./css/colors.module.css);
+@import url(./css/typography.module.css);
+@import url(./css/theme.light.css) (prefers-color-scheme: light);
+@import url(./css/theme.dark.css) (prefers-color-scheme: dark);
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
 .App {
   text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  background-color: var(--md-sys-color-background);
 }
 
+button{
+  font-family: Quicksand, sans-serif;
+  font-size: 80%;
+  font-weight:700;
+  border-radius: 30px;
+  padding: 10px;
+  border: 3px solid var(--md-sys-color-outline);
+ text-align:center;
+}
 
+button:hover{
+  scale:calc(1.1)
+}
+/******Navigation Styling*****/
+.header-div, .header-div-nli{
+  display: grid;
+  min-height: 120px;
+  max-height: fit-content;
+  width: 100%;
+  grid-template-columns: 10% 30% 60%;
+  background-color: var(--md-sys-color-surface-variant);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.header-div-nli{
+  background-color: var(--md-sys-color-primary);
+}
+
+.header-div h1, .header-div-nli h1{
+  margin-top:30px;
+  color:var(--md-sys-color-on-surface-variant);
+  text-align:left;
+  font-size: 2.5em;
+  padding: 6px;
+}
+
+.header-div-nli h1{
+  color: var(--md-sys-color-on-primary);
+}
+
+.header-div button, .header-div-nli button{
+  margin: 40px 10px 0px 10px;
+  background-color: var(--md-sys-color-tertiary);
+  color: var(--md-sys-color-surface-variant);
+
+}
+
+.header-div-nli button{
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface-variant)
+}
+.small_logo {
+  display:flex;
+  justify-content:flex-start;
+  padding:10px 20px;
+
+}
+.nav-btn, .nav-btn-nli{
+  display:flex;
+  justify-content:flex-end;
+  margin-right:20px;
+}
+
+.nav-btn button:hover{
+  border: 3px solid var(--md-sys-color-primary-container)
+}
+#register{
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container)
+}
+
+/*****mood selection for logged in user *****/
+h1{
+  color:var(--md-sys-color-on-background);
+}
 .mood-selection{
   margin: 0 auto;
   display:grid;
-  height: 90%;
-  width: 60%;
+  height: fit-content;
+  width: 50%;
+  min-width: 550px;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   align-content: center;
   grid-gap:10px;
+  background-color:var(--md-sys-color-surface-variant);
+  padding: 20px;
+  border-radius:30px;
 }
+
 .mood-btn{
+  font-family: Quicksand, sans-serif;
+  font-weight:bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color:black;
   height: 100px;
   width: 100px;
   border-radius: 50%;
-  color:white;
+  color:var(--md-sys-color-on-background);
+  border: 1px solid transparent;
+
 }
+
+.mood-btn:hover, #emergency:hover{
+  scale: calc(1.1);
+  border: 3px solid var(--md-sys-color-outline)
+}
+
 #emergencydiv{
-  grid-column: 1 / span 5;
-  
+  grid-column: 2 / span 4; 
 }
 
 #emergency{
-  width: 65%;
+  font-family: Quicksand, sans-serif;
+  font-weight:Bold;
+  border: 1px solid transparent;
+  width: 90%;
   border-radius: 30px;
-  background-color:red;
-  
+  margin-top:20px;
+  background-color:var(--md-sys-color-error);
+  color: var(--md-sys-color-on-error);
+  height: 50px;
+}
+
+#angry{
+  background-color:#EEC9C9;
+}
+
+#overwhelmed{
+  background-color:#D77575;
+}
+
+#disconnected{
+  background-color: #ea5454;
+}
+
+#depressed{
+  background-color: #E14242;
+}
+
+#blah{
+  background-color: #EFCE8C;
+}
+
+#under_stimulated{
+  background-color: #fdc867;
+}
+
+#tired{
+  background-color: #f7b231;
+}
+
+#frustrated{
+  background-color:#eea00f;
+}
+
+#fine{
+  background-color:#ADDAAC;
+}
+
+#calm{
+  background-color: #81da7f;
+}
+
+#good{
+  background-color:#4ed74b;
+}
+
+#happy{
+  background-color:#16c813
+}
+
+#bad{
+  background-color:#74ADF1;
+}
+
+#lonely{
+  background-color: #4d95ed;
+}
+
+#sad{
+  background-color:#3085ec;
+}
+
+#totally_distraught{
+  background-color:#1572e4;
+}
+
+#afraid{
+  background-color:#C181DF;
+}
+
+#guilty{
+  background-color: #b665dc;
+}
+
+#self_doubt{
+  background-color:#b34ee1;
+}
+
+#very_anxious{
+  background-color:#a12ad8;
+}
+
+/********dashboard styles*******/
+#go-back{
+  margin-top:10px;
+}
+
+
+
+/*****register styles*****/
+.nli{
+  background-color: var(--md-sys-color-surface-variant);
+  height: 100vh;
+}
+
+.formwrapper{
+  padding:100px;
+}
+
+.login, .register{
+  width: 400px;
+  border-radius:30px;
+  margin: 0 auto;
+  padding-top: 40px;
+  background-color: var(--md-sys-color-tertiary);
+  color: var(--md-sys-color-on-tertiary);
+  text-align:left;
+  padding:15px;
+  line-height:2em;
+
+}
+
+form button{
+  margin-top:5px;
+  background-color:var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  width: 50%;
+  font-size: 1em;
+}
+
+form input{
+  font-family: Quicksand, sans-serif;
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
+  margin-left:5px;
+  margin-bottom:20px;
+  border-radius:30px;
+  width: 90%;
+  padding: 10px;
+  font-weight:700;
+}
+
+.login-welcome{
+  font-weight:400;
+  width: 30%;
+  margin: 0 auto;
+  margin-bottom:40px;
+}
+
+.register-welcome{
+  font-weight:400;
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom:40px;
+  color: var(--md-sys-color-secondary)
 }

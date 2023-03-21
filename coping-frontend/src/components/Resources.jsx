@@ -14,7 +14,7 @@ export default function Resources() {
   //   "type_movement",
   //   "type_distraction",
   //   "type_grounding",
-  //   "type_affirmation",
+  //   "çtype_affirmation",
   // ];
 
   useEffect(() => {

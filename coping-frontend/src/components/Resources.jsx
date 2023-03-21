@@ -2,20 +2,16 @@ import { useState, useEffect, useContext } from "react";
 import { GetResources } from "../Services/ResourceServices";
 import { useNavigate } from "react-router-dom";
 import { UserProvider } from "../UserProvider";
+import SearchBar from "./SearchBar";
 
 export default function Resources() {
   const { user } = useContext(UserProvider);
   const { authenticated } = useContext(UserProvider);
-  const [resources, setResources] = useState([]);
+  const { resources } = useContext(UserProvider);
+  const { setResources } = useContext(UserProvider);
+  const { searchQuery } = useContext(UserProvider);
+  const { setSearchQuery } = useContext(UserProvider);
   let navigate = useNavigate();
-
-  // let arrayTypes = [
-  //   "type_meditation",
-  //   "type_movement",
-  //   "type_distraction",
-  //   "type_grounding",
-  //   "çtype_affirmation",
-  // ];
 
   useEffect(() => {
     const handleResources = async () => {
@@ -35,6 +31,9 @@ export default function Resources() {
   if (user) {
     authenticatedResources = (
       <div className="user_feed">
+        <div className="search-bar-container">
+          <SearchBar />
+        </div>
         <div className="logged_resources_header">
           <h1>POPULAR RESOURCES</h1>
         </div>

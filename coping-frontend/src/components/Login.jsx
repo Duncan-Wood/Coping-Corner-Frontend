@@ -26,7 +26,10 @@ export default function Login() {
     console.log("logged in!")
   };
   return (
-    <div>
+    <div className="nli">
+    <div className = "formwrapper">
+      <h1 className="login-welcome"> Welcome Back! </h1>
+      <h1 className = "login-welcome"> Take a deep breath and log in:</h1>
       <form className="login" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="username">username</label>
@@ -40,7 +43,7 @@ export default function Login() {
           />
         </div>
         <div>
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">password</label>
           <input
             onChange={handleChange}
             type="password"
@@ -53,6 +56,7 @@ export default function Login() {
             Log In
           </button>
       </form>
+    </div>
     </div>
   );
 }

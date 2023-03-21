@@ -10,6 +10,9 @@ function App() {
   const [user, setUser] = useState(null);
   const [mood, setMood] = useState(null)
   const [toolkit, setToolkit] = useState([])
+  const [searchQuery, setSearchQuery] = useState([])
+  const [resources, setResources] = useState([])
+
 
   const handleLogOut = () => {
     //Reset all auth related state and clear localStorage
@@ -34,7 +37,7 @@ function App() {
 
   return (
     <div className="App">
-      <UserProvider.Provider value={{user, setUser, toolkit, setToolkit, authenticated, toggleAuthenticated, handleLogOut, mood, setMood}}>
+      <UserProvider.Provider value={{user, setUser, toolkit, setToolkit, authenticated, toggleAuthenticated, handleLogOut, mood, setMood, searchQuery, setSearchQuery, resources, setResources}}>
         <header className="App-header">
           <Header />
         </header>

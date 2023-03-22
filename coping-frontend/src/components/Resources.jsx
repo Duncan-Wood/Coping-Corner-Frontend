@@ -13,6 +13,10 @@ export default function Resources() {
   const { setSearchQuery } = useContext(UserProvider);
   let navigate = useNavigate();
 
+
+  const showResource = (index) => {
+    navigate(`/ResourceDetailPage/${index}`)
+}
   useEffect(() => {
     const handleResources = async () => {
       const results = await GetResources();
@@ -41,7 +45,7 @@ export default function Resources() {
           (resource) => (
             console.log(filteredResources),
             (
-              <div className="resource-card" key={resource.id}>
+              <div className="resource-card" key={resource.id} onClick={() => showResource(resource.id)}>
                 <h3>{resource.title}</h3>
                 <h5>by: {resource.User.username}</h5>
               </div>

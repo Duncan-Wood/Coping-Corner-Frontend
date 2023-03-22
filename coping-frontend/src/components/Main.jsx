@@ -11,6 +11,7 @@ import Post from './Post'
 import Toolkit from './Toolkit'
 import LoggedHome from './LoggedHome'
 import EditProfile from "./EditProfile";
+import ResourceDetailPage from "./ResourceDetailPage";
 
 export default function Main() {
   // const [resources, setResources] = useState([])
@@ -37,6 +38,7 @@ export default function Main() {
         <Route path="/dashboard" element={<Dashboard />}/>
         <Route path="/post" element={<Post />}/>
         <Route path = "/toolkit" element={<Toolkit />} />
+        <Route path = "/resources/detail/" element={<ResourceDetailPage/>}/>
         <Route exact path="/edit-profile" component={<EditProfile />} />
 
         {/* <Route path="/resources" element={<Resources />}/> */}

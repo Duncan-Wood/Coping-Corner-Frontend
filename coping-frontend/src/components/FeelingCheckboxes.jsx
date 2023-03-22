@@ -4,13 +4,15 @@ export default function FeelingCheckboxes({handleCheckboxChange}){
         <div>
             <input type="checkbox" 
                    name="feeling" 
-                   onChange={handleCheckboxChange} 
                    value="angry"/> 
-                   <span>angry</span>
+                   onChange={handleCheckboxChange} 
+            <label htmlFor="angry">angry</label>
             <input type="checkbox" 
                     name="feeling" 
+                    value="blah"  
                     onChange={handleCheckboxChange} 
-                    value="blah"  />
+                    />
+                       <label htmlFor="blah">blah</label>   
                     <span>blah</span>
             <input type="checkbox" 
                     name="feeling" 

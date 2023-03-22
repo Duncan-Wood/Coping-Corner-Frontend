@@ -9,13 +9,8 @@ function Profile() {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
 
-  const { authenticated } = useContext(UserProvider);
   const { resources } = useContext(UserProvider);
-  const { setResources } = useContext(UserProvider);
 
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedTypes, setSelectedTypes] = useState([]);
-  const [selectedFeelings, setSelectedFeelings] = useState([]);
   // const [showEditProfile, setShowEditProfile] = useState(false)
 
   let navigate = useNavigate();
@@ -23,25 +18,6 @@ function Profile() {
   const showResource = (index) => {
     navigate(`/resourcesgit/detail/${index}`);
   };
-
-  useEffect(() => {
-    const handleGetResources = async () => {
-      const results = await GetResources();
-      setResources(results);
-    };
-    handleGetResources();
-  }, []);
-  useEffect(() => {
-    const fetchResources = async () => {
-      const results = await GetResources(
-        searchQuery,
-        selectedTypes,
-        selectedFeelings
-      );
-      setResources(results);
-    };
-    fetchResources();
-  }, [searchQuery, selectedTypes, selectedFeelings]);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -57,18 +33,6 @@ function Profile() {
     };
     fetchUser();
   }, []);
-
-  const filterResources = () => {
-    let filtered = resources;
-    //shows HQ resources if user is not logged in
-    if (!user && !authenticated) {
-      filtered = filtered.filter((resource) => resource.user_id === 1);
-    }
-
-    return filtered;
-  };
-
-  const filteredResources = filterResources();
 
   //   const handleEditProfile = () => {
   //     window.location.href = '/EditProfile'
@@ -88,16 +52,21 @@ function Profile() {
         <h2> Welcome back, {user.email}! </h2>
         {/* <button onClick={ handleEditProfile }> Edit Profile </button> */}
       </div>
-      {filteredResources.map((resource) => (
-        <div
-          className="resource-card"
-          key={resource.id}
-          onClick={() => showResource(resource.id)}
-        >
-          <h3>{resource.title}</h3>
-          <h5>by: {resource.User.username}</h5>
-        </div>
-      ))}
+      <div>
+        {resources.map((resource) => {
+          console.log(resources);
+          return (
+            <div
+              className="resource-pf"
+              key={resource.id}
+              onClick={() => showResource(resource.id)}
+            >
+              <h3>{resource.title}</h3>
+              <h5>{resource.type.join(", ")}</h5>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -11,8 +11,8 @@ export default function Post() {
   const [feelingArray, setFeelingArray] = useState([])
   const [formValues, setFormValues] = useState({
     title: "",
-    type: [],
-    feeling: [],
+    type:[],
+    feeling:[],
     time_requirement: "",
     preview_text: "",
     content: "",
@@ -20,27 +20,6 @@ export default function Post() {
     optional_link: ""
   })
 
- 
-
-    // }else
-  
-
-  // function handleChange(e){
-  //   e.preventDefault();
-  //     let currentValue = "";
-  //     currentValue = e.target.value;
-  //     if (e.target.name === "type" && e.target.checked) {
-  //       console.log (currentValue)
-  //       setTypeArray(...typeArray, ...currentValue)
-  //       setFormValues({...formValues, type:{typeArray}})
-  //      };
-  //     if (e.target.name === "feeling" && e.target.checked){
-  //       setFeelingArray(...feelingArray, ...currentValue)
-  //       console.log(currentValue)
-  //       setFormValues({...formValues, feeling:[feelingArray]})
-  //       console.log(formValues)
-  //     }
-  // }
 
   const handleChange = (e) => {
     e.preventDefault()
@@ -49,29 +28,28 @@ export default function Post() {
   }
   }
 
-  const handleCheckChange = (e) => {
-    e.preventDefault()
-    if(e.target.checked) 
-    {
-       return setTypeArray([e.target.value])
-    }else{return null;}
-  }
-  // else {
-  //    if (e.target.name === "type"){
-  //     let array2 = [];
-  //     array2.push(e.target.value)
-  //     setTypeArray(...array2)
-  //     // setTypeArray(...e.target.value);
-  //   if (e.target.name ==="feeling"){
-  //     let array2 = [];
-  //     array2.push(e.target.value)
-  //     setFeelingArray(...array2)
-  //     // setFeelingArray(...e.target.value);
-  //     console.log(feelingArray)
-  //   }
-  //   }
-  // }
+  const handleTypeChange = (e) => {
+        if(e.target.checked){
+            setTypeArray([...typeArray, e.target.value])
+            
+        }else{
+            let index = typeArray.indexOf(e.target.value)
+            typeArray.splice(index, 1)
+            setTypeArray([...typeArray])
+        }
+    }
 
+
+    const handleFeelingChange = (e) => {
+        if(e.target.checked){
+            setFeelingArray([...feelingArray, e.target.value])
+
+        }else{
+            let index = feelingArray.indexOf(e.target.value)
+            feelingArray.splice(index, 1)
+            setFeelingArray([...feelingArray])
+        }
+    }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -85,8 +63,9 @@ export default function Post() {
       content:formValues.content,
       optional_image: formValues.optional_image,
       optional_link: formValues.optional_link
-          });
-          console.log(formValues)
+          })
+          console.log(typeArray)
+
     setFormValues({
       user_id: "",
       title: "",
@@ -98,14 +77,14 @@ export default function Post() {
       optional_image: "",
       optional_link: ""
     });
-    // navigate("/resources");
+    navigate(`/resources/detail/`);
   }
 
   return (
     <div className = "addpost">
       <h1>DRAFT A POST</h1>
       <form className="resourceDraft" onSubmit={handleSubmit} >
-        <div>
+        <div className = "title">
           <label htmlFor="title">title</label>
           <br></br>
           <input
@@ -115,39 +94,46 @@ export default function Post() {
             type="text"
             placeholder="Resource Title" required />
         </div>
-
-        <div className ="typeCheckbox">
-          <h3>Type</h3>
+        <h3>Type</h3><br></br>
+        <div className ="typeCheckbox" onSubmit={handleSubmit}>
+     
         <input  type="checkbox"
                 name="type"
-                onChange={handleCheckChange} 
+                onChange={handleTypeChange} 
                 value="meditation" /> 
                 <label htmlFor="meditation">meditation</label>
         <input  type="checkbox"
                 name="type"
-                onChange={handleCheckChange} 
+                onChange={handleTypeChange} 
                 value="movement"/> 
                 <label htmlFor="movement">movement</label>
         <input  type="checkbox"
                 name="type"
-                onChange={handleCheckChange} 
+                onChange={handleTypeChange} 
                 value="mind-body"/> 
                 <label htmlFor="mind-body">mind-body</label>
+                
         <input  type="checkbox"
                 name="type"
-                onChange={handleCheckChange} 
+                onChange={handleTypeChange} 
                 value="distraction"/> 
                 <label htmlFor="distraction">distraction</label>
         <input  type="checkbox"
                 name="type"
-                onChange={handleCheckChange} 
+                onChange={handleTypeChange} 
                 value="grounding" /> 
                 <label htmlFor="grounding">grounding</label>
         <input  type="checkbox"
                 name="type"
-                onChange={handleCheckChange} 
+                onChange={handleTypeChange} 
                 value="affirmation"/> 
                 <label htmlFor="affirmation">affirmation</label>
+        <input  type="checkbox"
+                name="type"
+                onChange={handleTypeChange} 
+                value="emergency"/> 
+                <label htmlFor="affirmation">emergency</label>
+    
         </div>
 
     
@@ -156,110 +142,109 @@ export default function Post() {
             <div><input type="checkbox" 
                    name="feeling" 
                    value="angry"
-                   onChange={handleChange} />
+                   onChange={handleFeelingChange} />
             <label htmlFor="angry">angry</label> </div>
-
             <div><input type="checkbox" 
                     name="feeling" 
-                    value="blah"  
-                    onChange={handleChange} />
-                    <label htmlFor="blah">blah</label></div>
+                    value="overwhelmed"  
+                    onChange={handleFeelingChange}/>
+                    <label htmlFor="overwhelmed">overwhelmed</label></div>
             <div><input type="checkbox" 
                     name="feeling" 
-                    onChange={handleChange} 
-                    value="fine"  /> </div>
-                    <label htmlFor="fine">fine</label>
+                    onChange={handleFeelingChange} 
+                    value="disconnected"  /> </div>
+                    <label htmlFor="fine">disconnected</label>
+            <input  type="checkbox" 
+                    name="feeling"
+                    onChange={handleFeelingChange}
+                    value="depressed"  /> 
+                    <label htmlFor="bad">depressed</label>
             <input  type="checkbox" 
                     name="feeling"
                     onChange={handleChange}
-                    value="bad"  /> 
-                    <label htmlFor="bad">bad</label>
+                    value="blah"  /> 
+                    <label htmlFor="blah">blah</label>
             <input  type="checkbox" 
                     name="feeling"
-                    onChange={handleChange}
-                    value="afraid"  /> 
-                    <label htmlFor="afraid">afraid</label>
-            <input  type="checkbox" 
-                    name="feeling"
-                    onChange={handleChange}
-                    value="overwhelmed"  /> 
-                    <label htmlFor="overwhelmed">overwhelmed</label>
-            <input  type="checkbox" 
-                    name="feeling"
-                    onChange={handleChange}
+                    onChange={handleFeelingChange}
                     value="under-stimulated"  /> 
                     <label htmlFor="under-stimulated">under-stimulated</label>
             <input  type="checkbox" 
                     name="feeling"
-                    onChange={handleChange}
-                    value="calm"  /> 
-                    <label htmlFor="calm">calm</label>
-            <input  type="checkbox" 
-                    name="feeling"
-                    onChange={handleChange}
-                    value="lonely" /> 
-                    <label htmlFor="lonely">lonely</label>
-            <input  type="checkbox" 
-                    name="feeling"
-                    onChange={handleChange}
-                    value="extremely irritable" /> 
-                    <label htmlFor="extremely-irritable">extremely irritable</label>
-            <input  type="checkbox" 
-                    name="feeling"
-                    onChange={handleChange}
-                    value="tired" /> 
+                    onChange={handleFeelingChange}
+                    value="tired"  /> 
                     <label htmlFor="tired">tired</label>
             <input  type="checkbox" 
                     name="feeling"
-                    onChange={handleChange}
-                    value="self-doubt" /> 
-                    <label htmlFor="self-doubt">self-doubt</label>
+                    onChange={handleFeelingChange}
+                    value="frustrated"  /> 
+                    <label htmlFor="frustrated">frustrated</label>
             <input  type="checkbox" 
                     name="feeling"
-                    onChange={handleChange}
+                    onChange={handleFeelingChange}
+                    value="fine" /> 
+                    <label htmlFor="fine">fine</label>
+            <input  type="checkbox" 
+                    name="feeling"
+                    onChange={handleFeelingChange}
+                    value="calm" /> 
+                    <label htmlFor="calm">calm</label>
+            <input  type="checkbox" 
+                    name="feeling"
+                    onChange={handleFeelingChange}
                     value="good" /> 
                     <label htmlFor="good">good</label>
             <input  type="checkbox" 
                     name="feeling"
-                    onChange={handleChange}
-                    value="guilty" /> 
-                    <label htmlFor="guilty">guilty</label>
-            <input  type="checkbox" 
-                    name="feeling"
-                    onChange={handleChange}
-                    value="disconnected" />
-                    <label htmlFor="disconnected">disconnected</label>
-            <input  type="checkbox" 
-                    name="feeling"
-                    onChange={handleChange}
-                    value="depressed" /> 
-                    <label htmlFor="depressed">depresssed</label>
-            <input  type="checkbox" 
-                    name="feeling"
-                    onChange={handleChange}
-                    value="sad" />
-                    <label htmlFor="sad">sad</label>
-            <input  type="checkbox" 
-                    name="feeling"
-                    onChange={handleChange}
-                    value="frustrated" /> 
-                    <label htmlFor="frustrated">frustrated</label>
-            <input  type="checkbox" 
-                    name="feeling"
-                    onChange={handleChange}
+                    onChange={handleFeelingChange}
                     value="happy" /> 
                     <label htmlFor="happy">happy</label>
             <input  type="checkbox" 
                     name="feeling"
-                    onChange={handleChange}
-                    value="totally distraught" /> 
+                    onChange={handleFeelingChange}
+                    value="bad" /> 
+                    <label htmlFor="bad">bad</label>
+            <input  type="checkbox" 
+                    name="feeling"
+                    onChange={handleFeelingChange}
+                    value="lonely" /> 
+                    <label htmlFor="lonely">lonely</label>
+            <input  type="checkbox" 
+                    name="feeling"
+                    onChange={handleFeelingChange}
+                    value="sad" />
+                    <label htmlFor="sad">sad</label>
+            <input  type="checkbox" 
+                    name="feeling"
+                    onChange={handleFeelingChange}
+                    value="totally-distraught" /> 
                     <label htmlFor="totally-distraught">totally distraught</label>
+            <input  type="checkbox" 
+                    name="feeling"
+                    onChange={handleFeelingChange}
+                    value="afraid" />
+                    <label htmlFor="afraid">afraid</label>
+            <input  type="checkbox" 
+                    name="feeling"
+                    onChange={handleFeelingChange}
+                    value="guilty" /> 
+                    <label htmlFor="guilty">guilty</label>
+            <input  type="checkbox" 
+                    name="feeling"
+                    onChange={handleFeelingChange}
+                    value="self-doubt" /> 
+                    <label htmlFor="self-doubt">self-doubt</label>
+            <input  type="checkbox" 
+                    name="feeling"
+                    onChange={handleFeelingChange}
+                    value="very-anxious" /> 
+                    <label htmlFor="very-anxious">very anxious</label>
         </div>
 
         <div>
           <label htmlFor="time_requirement">time requirement</label>
           <br></br>
-          <select name="time_requirement" id="time_requirement" onChange = {handleChange} required>
+          <select name="time_requirement" id="time_requirement" onChange = {handleChange} >
             <option name="time_requirement" value="choose a duration">--choose a duration--</option>
              <option name="time_requirement" value="5">5 Minutes</option>
              <option name="time_requirement"value="10">10 Minutes</option>
@@ -285,7 +270,7 @@ export default function Post() {
             value={formValues.preview_text}
             name="preview_text"
             type="text"
-            required
+            
             placeholder="preview text here" />
         </div>
 
@@ -296,7 +281,7 @@ export default function Post() {
             value={formValues.content}
             name="content"
             style={{ width: '50%', height: '200px' }} 
-            required/>
+            />
         </div>
 
         <div>

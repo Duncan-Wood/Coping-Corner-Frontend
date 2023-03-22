@@ -6,6 +6,7 @@ function Profile() {
     const [ user, setUser ] = useState(null)
     const [ loading, setLoading ] = useState(true)
     const [ error, setError ] = useState(null)
+    const [showEditProfile, setShowEditProfile] = useState(false)
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -22,6 +23,10 @@ function Profile() {
     fetchUser()
   }, [])
 
+  const handleEditProfile = () => {
+    window.location.href = '/EditProfile'
+  }
+
   if (loading) {
     return <p> Loading... </p>
   }
@@ -32,10 +37,8 @@ function Profile() {
 
   return (
     <div>
-      <h2> Profile </h2>
-      <p> Username ID: { user.id } </p>
-      <p> Email: { user.email } </p>
-      <button> Edit Profile </button>
+      <h2> Welcome back, { user.email }! </h2>
+      <button onClick={ handleEditProfile }> Edit Profile </button>
     </div>
   )
 }

@@ -9,6 +9,9 @@
   text-align: center;
   font-family: 'Quicksand', sans-serif;
   background-color: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
+  min-height: 100vh;
+  height: 100%;
 }
 
 button{
@@ -140,10 +143,12 @@ h1{
 
 #angry{
   background-color:#EEC9C9;
+  color: rgb(67, 67, 67);
 }
 
 #overwhelmed{
   background-color:#D77575;
+
 }
 
 #disconnected{
@@ -156,10 +161,11 @@ h1{
 
 #blah{
   background-color: #EFCE8C;
+  color: rgb(67, 67, 67);
 }
 
 #under_stimulated{
-  background-color: #fdc867;
+  background-color: #eeb955;
 }
 
 #tired{
@@ -172,10 +178,11 @@ h1{
 
 #fine{
   background-color:#ADDAAC;
+  color: rgb(67, 67, 67);
 }
 
 #calm{
-  background-color: #81da7f;
+  background-color: #6fd16d;
 }
 
 #good{
@@ -188,6 +195,7 @@ h1{
 
 #bad{
   background-color:#74ADF1;
+  color: rgb(67, 67, 67);
 }
 
 #lonely{
@@ -204,6 +212,7 @@ h1{
 
 #afraid{
   background-color:#C181DF;
+  color: rgb(67, 67, 67);
 }
 
 #guilty{
@@ -286,23 +295,38 @@ form input{
 
 
 /*******ADD POST FORM****/
-/* .addPost{
-  display:grid;
-  grid-template-rows: repeat(10, 40px);
-} */
-.resourceDraft{
-  width:50%;
+
+ .resourceDraft{
+ width: 60%;
   margin: 0 auto;
   border-radius:30px;
   background-color: var(--md-sys-color-tertiary);
   color:  var(--md-sys-color-on-tertiary);
   padding:20px;
+  display: flex;
+  flex-direction:column;
+
+
 
 }
+/*
+label{
+  font-weight:bold;
+}
 
+.typeCheckbox{
+
+  width: 50%;
+  margin: 0 auto;
+}
 .feelingCheckbox{
-  /* display:grid;
-  grid-template-columns: repeat (4,25%);
-  background-color:black;
-  border-radius */
+  grid-area:3/1/5/5;
+  display:Flex;
+  align-items:center;
+  justify-content:center;
+  width: 50%;
+  margin: 0 auto;
 }
+
+
+ */

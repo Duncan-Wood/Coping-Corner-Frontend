@@ -16,7 +16,7 @@ function Profile() {
   let navigate = useNavigate();
 
   const showResource = (index) => {
-    navigate(`/resourcesgit/detail/${index}`);
+    navigate(`/resources/detail/${index}`);
   };
 
   useEffect(() => {

@@ -351,7 +351,6 @@ margin-top:-10px;
   margin-left:-30px;
 } */
 #home-register-btn, .loginreg {
-
   width: 8em;
   height: 4em;
   margin-right:20px;
@@ -369,6 +368,7 @@ margin-top:-10px;
   height:3em;
   background-color: var(--md-sys-color-background)
 }
+
 /*******ADD POST FORM****/
 
  .resourceDraft{
@@ -376,24 +376,77 @@ margin-top:-10px;
   margin: 0 auto;
   border-radius:30px;
   background-color: var(--md-sys-color-tertiary);
-  color:  var(--md-sys-color-on-tertiary);
-  padding:20px;
+  color:  var(--md-sys-color-tertiary);
+  padding:40px;
+  margin-top:50px;
+  margin-bottom:30px;
 }
 
 .typeCheckbox, .feelingCheckbox {
+  width:80%;
   list-style:none;
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
+  background-color:var(--md-sys-color-background);
+  padding:5px;
+  border-radius:30px;
+  padding-top:20px;
+  font-weight: 500;
+  margin: 0 auto;
 }
+
+
+.typeCheckbox li, .feelingCheckbox li{
+  margin: 0 10px;
+}
+
 .typeCheckbox li input, .feelingCheckbox li input{
   padding:5px;
   width:fit-content;
   text-align:left;
 
 }
+.resourceDraft h5{
+  color: var(--md-sys-color-background);
+  line-height: 10px;
+}
+.resourceDraft h3{
+  margin-bottom: 0;
+  margin-top:40px;
+  line-height: 10px;
+  color: var(--md-sys-color-primary-container);
+}
+
+.resourceDraft select{
+  width:30%;
+  font-family:Quicksand,sans-serif;
+  font-weight:500;
+  font-size:1em;
+  border-radius:30px;
+}
+
+#submitPost{
+  width:20px;
+}
+.resourceDraft input{
+  width:75%;
+}
+
+.contentbox{
+  width:80%;
+  border-radius:30px;
+  height:100px;
+    background-color:var(--md-sys-color-background);
+}
 
 
+
+.sharepost button{
+  width:fit-content;
+}
+
+/******resources*****/
 .resource-card{
   background-color:lightblue;
   min-height: 100px;

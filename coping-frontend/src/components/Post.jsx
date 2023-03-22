@@ -86,7 +86,7 @@ export default function Post() {
 
       <form className="resourceDraft" onSubmit={handleSubmit} >
         <div className = "title">
-          <label htmlFor="title">title</label>
+          <h3><label htmlFor="title">title</label></h3>
           <br></br>
           <input
             onChange={handleChange}
@@ -95,7 +95,8 @@ export default function Post() {
             type="text"
             placeholder="Resource Title" required />
         </div>
-        <h3>Type</h3>
+        <h3>type</h3>
+        <h5>(select all that apply)</h5>
         <ul className = "typeCheckbox">
         {/* // <div className ="typeCheckbox" onSubmit={handleSubmit}> */}
         <li>
@@ -139,7 +140,8 @@ export default function Post() {
         </ul>
 
     
-        <h3>Feeling</h3>
+        <h3>feeling</h3>
+        <h5>(select all that apply)</h5>
         <ul className = "feelingCheckbox">
             <li><input type="checkbox" 
                    name="feeling" 
@@ -163,7 +165,7 @@ export default function Post() {
                     <label htmlFor="bad">depressed</label></li>
             <li><input  type="checkbox" 
                     name="feeling"
-                    onChange={handleChange}
+                    onChange={handleFeelingChange}
                     value="blah"  /> 
                     <label htmlFor="blah">blah</label></li>
            <li> <input  type="checkbox" 
@@ -244,7 +246,7 @@ export default function Post() {
         </ul>
 
         <div>
-          <label htmlFor="time_requirement">time requirement</label>
+          <h3><label htmlFor="time_requirement">time requirement</label></h3>
           <br></br>
           <select name="time_requirement" id="time_requirement" onChange = {handleChange} >
             <option name="time_requirement" value="choose a duration">--choose a duration--</option>
@@ -266,27 +268,27 @@ export default function Post() {
         </div>
 
         <div>
-          <label htmlFor="preview_text">preview text</label>
+          <h3><label htmlFor="preview_text">preview text</label></h3>
           <br></br>
           <input onChange={handleChange}
             value={formValues.preview_text}
             name="preview_text"
             type="text"
-            placeholder="preview text here" />
+            placeholder="preview text here" required />
         </div>
 
         <div>
-          <label htmlFor="content">content</label>
+          <h3><label htmlFor="content">content</label></h3>
           <br></br>
           <textarea className="contentbox" onChange={handleChange}
             value={formValues.content}
             name="content"
-            style={{ width: '50%', height: '200px' }} 
+           required
             />
         </div>
 
         <div>
-          <label htmlFor="imageURL">image URL</label>
+          <h3><label htmlFor="imageURL">image URL</label></h3>
           <br></br>
           <input onChange={handleChange}
             value={formValues.imageURL}
@@ -295,7 +297,7 @@ export default function Post() {
         </div>
 
         <div>
-          <label htmlFor="imageURL">resource URL</label>
+          <h3><label htmlFor="imageURL">resource URL</label></h3>
           <br></br>
           <input onChange={handleChange}
             value={formValues.resourceURL}
@@ -303,8 +305,8 @@ export default function Post() {
             name="optional_link" />
         </div>
 
-        <input type="submit" value="SHARE POST"></input> 
-        {/* disabled={!formValues.title || !formValues.preview_text || !formValues.content || !formValues.type || !formValues.feeling || !formValues.time_requirement} /> */}
+        <input type="submit" value="SHARE POST" id="submitpost" disabled={!formValues.title || !formValues.preview_text || !formValues.content || !formValues.time_requirement}></input>
+          
 
 
       </form>

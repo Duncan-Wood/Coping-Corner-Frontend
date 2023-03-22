@@ -9,18 +9,10 @@ export default function Resources() {
 
   const { resources } = useContext(UserProvider);
 
-  // const [searchQuery, setSearchQuery] = useState("");
-  // const [selectedTypes, setSelectedTypes] = useState([]);
-  // const [selectedFeelings, setSelectedFeelings] = useState([]);
-
   let navigate = useNavigate();
-
   const showResource = (index) => {
-
-    navigate(`/resources/detail/${index}`)
-}
-
-  
+    navigate(`/resources/detail/${index}`);
+  };
 
   //further if/else statements could be added to check if user has mood for dashboard
   const filterResources = () => {
@@ -29,25 +21,6 @@ export default function Resources() {
     if (!user && !authenticated) {
       filtered = filtered.filter((resource) => resource.user_id === 1);
     }
-
-    // if (searchQuery) {
-    //   filtered = filtered.filter((resource) =>
-    //     resource.title.toLowerCase().includes(searchQuery.toLowerCase())
-    //   );
-    // }
-
-    // if (selectedTypes.length > 0) {
-    //   filtered = filtered.filter((resource) =>
-    //     selectedTypes.includes(resource.type)
-    //   );
-    // }
-
-    // if (selectedFeelings.length > 0) {
-    //   filtered = filtered.filter((resource) =>
-    //     selectedFeelings.some((feeling) => resource.feelings.includes(feeling))
-    //   );
-    // }
-
     return filtered;
   };
 
@@ -67,19 +40,17 @@ export default function Resources() {
           OR LOG IN NOW!
         </h5>
       </div>
-      {filteredResources.map((resource) =>
+      {filteredResources.map((resource) => (
         // console.log(filteredResources)
-        (
-          <div
-            className="resource-card"
-            key={resource.id}
-            onClick={() => showResource(resource.id)}
-          >
-            <h3>{resource.title}</h3>
-            <h5>by: {resource.User.username}</h5>
-          </div>
-        )
-      )}
+        <div
+          className="resource-card"
+          key={resource.id}
+          onClick={() => showResource(resource.id)}
+        >
+          <h3>{resource.title}</h3>
+          <h5>by: {resource.User.username}</h5>
+        </div>
+      ))}
     </div>
   );
 
@@ -95,19 +66,17 @@ export default function Resources() {
         <div className="logged_resources_header">
           <h1>POPULAR RESOURCES</h1>
         </div>
-        {filteredResources.map((resource) =>
+        {filteredResources.map((resource) => (
           // console.log(filteredResources)
-          (
-            <div
-              className="resource-card"
-              key={resource.id}
-              onClick={() => showResource(resource.id)}
-            >
-              <h3>{resource.title}</h3>
-              <h5>by: {resource.User.username}</h5>
-            </div>
-          )
-        )}
+          <div
+            className="resource-card"
+            key={resource.id}
+            onClick={() => showResource(resource.id)}
+          >
+            <h3>{resource.title}</h3>
+            <h5>by: {resource.User.username}</h5>
+          </div>
+        ))}
       </div>
     );
   }

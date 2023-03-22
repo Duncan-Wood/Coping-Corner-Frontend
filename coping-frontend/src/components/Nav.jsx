@@ -11,7 +11,7 @@ export default function Nav(){
     if (user) {
         authenticatedOptions = (
             <div className = "header-div">
-                <img className ="small_logo" src = {small_logo} width="90px"/>
+                <Link to='/'><img className ="small_logo" src = {small_logo} width="90px"/></Link>
                 <div><h1>COPING CORNER</h1></div>
                 <div className = "nav-btn">
                     <Link to='/profile'><button>profile</button></Link>

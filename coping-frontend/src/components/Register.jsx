@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { RegisterUser } from "../Services/Auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
+
 
 export default function Register() {
   let navigate = useNavigate();
@@ -36,6 +37,7 @@ export default function Register() {
   return (
     <div className="nli">
       <div className="formwrapper">
+        <h2 className = "reg-title">REGISTER</h2>
         <h1 className = "register-welcome">Join our corner to get free access to a community library of support resources.</h1>
         <form className="register" onSubmit={handleSubmit}>
           <div>
@@ -70,7 +72,7 @@ export default function Register() {
               required
             />
           </div>
-          <div className="input-wrapper">
+          <div className="confirmPassword">
             <label htmlFor="confirmPassword">confirm password</label><br></br>
             <input
               onChange={handleChange}
@@ -91,6 +93,9 @@ export default function Register() {
             Register
           </button>
         </form>
+       <div>
+        <p>Already have an account?</p> <Link to="/login"><button className="loginreg">Login</button></Link>
+        </div> 
       </div>
     </div>
   );

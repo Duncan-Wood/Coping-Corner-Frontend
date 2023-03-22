@@ -77,12 +77,13 @@ export default function Post() {
       optional_image: "",
       optional_link: ""
     });
-    navigate(`/resources/detail/`);
+    navigate(`/profile`);
   }
 
   return (
     <div className = "addpost">
       <h1>DRAFT A POST</h1>
+
       <form className="resourceDraft" onSubmit={handleSubmit} >
         <div className = "title">
           <label htmlFor="title">title</label>
@@ -94,47 +95,48 @@ export default function Post() {
             type="text"
             placeholder="Resource Title" required />
         </div>
-        <h3>Type</h3><br></br>
-        <div className ="typeCheckbox" onSubmit={handleSubmit}>
-     
+        <h3>Type</h3>
+        <ul className = "typeCheckbox">
+        {/* // <div className ="typeCheckbox" onSubmit={handleSubmit}> */}
+        <li>
         <input  type="checkbox"
                 name="type"
                 onChange={handleTypeChange} 
                 value="meditation" /> 
-                <label htmlFor="meditation">meditation</label>
-        <input  type="checkbox"
+                <label htmlFor="meditation">meditation</label></li>
+        <li><input  type="checkbox"
                 name="type"
                 onChange={handleTypeChange} 
                 value="movement"/> 
-                <label htmlFor="movement">movement</label>
-        <input  type="checkbox"
+                <label htmlFor="movement">movement</label></li>
+       <li><input  type="checkbox"
                 name="type"
                 onChange={handleTypeChange} 
                 value="mind-body"/> 
-                <label htmlFor="mind-body">mind-body</label>
+                <label htmlFor="mind-body">mind-body</label></li> 
                 
-        <input  type="checkbox"
+       <li> <input  type="checkbox"
                 name="type"
                 onChange={handleTypeChange} 
                 value="distraction"/> 
-                <label htmlFor="distraction">distraction</label>
-        <input  type="checkbox"
+                <label htmlFor="distraction">distraction</label></li>
+       <li><input  type="checkbox"
                 name="type"
                 onChange={handleTypeChange} 
                 value="grounding" /> 
-                <label htmlFor="grounding">grounding</label>
-        <input  type="checkbox"
+                <label htmlFor="grounding">grounding</label></li> 
+        <li><input  type="checkbox"
                 name="type"
                 onChange={handleTypeChange} 
                 value="affirmation"/> 
-                <label htmlFor="affirmation">affirmation</label>
-        <input  type="checkbox"
+                <label htmlFor="affirmation">affirmation</label></li>
+       <li> <input  type="checkbox"
                 name="type"
                 onChange={handleTypeChange} 
                 value="emergency"/> 
-                <label htmlFor="affirmation">emergency</label>
+                <label htmlFor="affirmation">emergency</label></li>
     
-        </div>
+        </ul>
 
     
         <h3>Feeling</h3>

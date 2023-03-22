@@ -19,7 +19,7 @@ export default function Resources() {
   let navigate = useNavigate();
 
   const showResource = (index) => {
-    navigate(`/ResourceDetailPage/${index}`)
+    navigate(`/resourcesgit/detail/${index}`)
 }
 
   //Calls all resources on page load

@@ -46,6 +46,10 @@ function Profile() {
     return <p> Error: {error.message} </p>;
   }
 
+  const sortResources = resources.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  const mostRecentResource = sortResources.slice(0, 1)[0];
+
   return (
     <div className="profile-page">
       <div className="header">
@@ -53,19 +57,19 @@ function Profile() {
         {/* <button onClick={ handleEditProfile }> Edit Profile </button> */}
       </div>
       <div>
-        {resources.map((resource) => {
-          console.log(resources);
-          return (
+        
+          
             <div
-              className="resource-pf"
-              key={resource.id}
-              onClick={() => showResource(resource.id)}
+              className="resource-card"
+              key={mostRecentResource.id}
+              onClick={() => showResource(mostRecentResource.id)}
             >
-              <h3>{resource.title}</h3>
-              <h5>{resource.type.join(", ")}</h5>
+              <h3> { mostRecentResource.title } </h3>
+              <h5> { mostRecentResource.type.join(", ") } </h5>
+              <h4> { mostRecentResource.preview_text } </h4> 
+              <h5> Time Requirement: { mostRecentResource.time_requirement } </h5>
             </div>
-          );
-        })}
+          
       </div>
     </div>
   );

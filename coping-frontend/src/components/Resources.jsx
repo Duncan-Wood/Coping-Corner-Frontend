@@ -18,6 +18,10 @@ export default function Resources() {
 
   let navigate = useNavigate();
 
+  const showResource = (index) => {
+    navigate(`/ResourceDetailPage/${index}`)
+}
+
   //Calls all resources on page load
   useEffect(() => {
     const handleGetResources = async () => {
@@ -88,7 +92,7 @@ export default function Resources() {
         (resource) => (
           console.log(filteredResources),
           (
-            <div className="resource-card" key={resource.id}>
+            <div className="resource-card" key={resource.id} onClick={() => showResource(resource.id)}>
               <h3>{resource.title}</h3>
               <h5>by: {resource.User.username}</h5>
             </div>
@@ -113,7 +117,7 @@ export default function Resources() {
           (resource) => (
             console.log(filteredResources),
             (
-              <div className="resource-card" key={resource.id}>
+              <div className="resource-card" key={resource.id} onClick={() => showResource(resource.id)}>
                 <h3>{resource.title}</h3>
                 <h5>by: {resource.User.username}</h5>
               </div>

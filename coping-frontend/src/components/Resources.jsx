@@ -20,22 +20,7 @@ export default function Resources() {
     navigate(`/resources/detail/${index}`)
 }
 
-  //Calls all resources on page load
-  useEffect(() => {
-    const handleGetResources = async () => {
-      const results = await GetResources();
-      setResources(results);
-    };
-    handleGetResources();
-  }, []);
-    useEffect(() => {
-    const fetchResources = async () => {
-      const results = await GetResources(searchQuery, selectedTypes, selectedFeelings);
-      setResources(results);
-    };
-    fetchResources();
-  }, [searchQuery, selectedTypes, selectedFeelings]);
-
+  
 
   //further if/else statements could be added to check if user has mood for dashboard
   const filterResources = () => {

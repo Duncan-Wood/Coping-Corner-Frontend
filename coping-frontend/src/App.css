@@ -282,3 +282,27 @@ form input{
   margin-bottom:40px;
   color: var(--md-sys-color-secondary)
 }
+
+
+
+/*******ADD POST FORM****/
+/* .addPost{
+  display:grid;
+  grid-template-rows: repeat(10, 40px);
+} */
+.resourceDraft{
+  width:50%;
+  margin: 0 auto;
+  border-radius:30px;
+  background-color: var(--md-sys-color-tertiary);
+  color:  var(--md-sys-color-on-tertiary);
+  padding:20px;
+
+}
+
+.feelingCheckbox{
+  /* display:grid;
+  grid-template-columns: repeat (4,25%);
+  background-color:black;
+  border-radius */
+}

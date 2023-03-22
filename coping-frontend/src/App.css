@@ -365,7 +365,7 @@ margin-top:-10px;
 }
 
 .loginreg{
-width:fit-content;
+  width:fit-content;
   height:3em;
   background-color: var(--md-sys-color-background)
 }
@@ -380,16 +380,28 @@ width:fit-content;
   padding:20px;
 }
 
+.typeCheckbox, .feelingCheckbox {
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.typeCheckbox li input, .feelingCheckbox li input{
+  padding:5px;
+  width:fit-content;
+  text-align:left;
 
-.typeCheckbox{
-
-  width: 50%;
-  margin: 0 auto;
 }
 
 
 .resource-card{
   background-color:lightblue;
+  min-height: 100px;
+  max-height: fit-content;
+  width: 30%;
+  display:inline-block;
+  margin:5px;
+  border-radius:30px;
 }
 
 

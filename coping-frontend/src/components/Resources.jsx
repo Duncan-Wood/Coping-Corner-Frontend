@@ -68,7 +68,8 @@ export default function Resources() {
         </h5>
       </div>
       {filteredResources.map((resource) =>
-        console.log(filteredResources)(
+        // console.log(filteredResources)
+        (
           <div
             className="resource-card"
             key={resource.id}
@@ -95,7 +96,8 @@ export default function Resources() {
           <h1>POPULAR RESOURCES</h1>
         </div>
         {filteredResources.map((resource) =>
-          console.log(filteredResources)(
+          // console.log(filteredResources)
+          (
             <div
               className="resource-card"
               key={resource.id}

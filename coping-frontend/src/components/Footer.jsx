@@ -1,7 +1,9 @@
 export default function Footer(){
-    return(
-        <div>
-            <h1>hi</h1>
-        </div>
-    )
+    return (
+        <footer>
+          <div className="container">
+            <p>&copy; Coping Corner. </p>
+          </div>
+        </footer>
+      )
 }

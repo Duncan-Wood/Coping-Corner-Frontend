@@ -25,6 +25,7 @@ function Profile() {
         const user = await CheckSession();
         setUser(user);
         setLoading(false);
+        console.log(user)
       } catch (error) {
         setError(error);
         setLoading(false);
@@ -53,7 +54,7 @@ function Profile() {
   return (
     <div className="profile-page">
       <div className="header">
-        <h2> Welcome back, {user.email}! </h2>
+        <h2> Welcome back, {user.username}! </h2>
         {/* <button onClick={ handleEditProfile }> Edit Profile </button> */}
       </div>
       <div className = "profile-grid">

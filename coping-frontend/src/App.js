@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import { UserProvider } from "./UserProvider";
 import { useState, useEffect} from 'react'
 import { CheckSession } from "./Services/Auth";
+import { GetResources } from "./Services/ResourceServices";
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false);
@@ -13,6 +14,13 @@ function App() {
   const [searchQuery, setSearchQuery] = useState([])
   const [resources, setResources] = useState([])
 
+  useEffect(() => {
+    const handleGetResources = async () => {
+      const results = await GetResources();
+      setResources(results);
+    };
+    handleGetResources();
+  }, []);
 
   const handleLogOut = () => {
     //Reset all auth related state and clear localStorage

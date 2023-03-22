@@ -56,11 +56,12 @@ function Profile() {
         <h2> Welcome back, {user.email}! </h2>
         {/* <button onClick={ handleEditProfile }> Edit Profile </button> */}
       </div>
-      <div>
+      <div className = "profile-grid">
         
-          
+          <div className = "card-container">
+            <h3 className="profile-titles">Recent Resources</h3>
             <div
-              className="resource-card"
+              className="resource-card-profile"
               key={mostRecentResource.id}
               onClick={() => showResource(mostRecentResource.id)}
             >
@@ -68,6 +69,26 @@ function Profile() {
               <h5> { mostRecentResource.type.join(", ") } </h5>
               <h4> { mostRecentResource.preview_text } </h4> 
               <h5> Time Requirement: { mostRecentResource.time_requirement } </h5>
+            </div>
+            </div>
+
+            <div className = "card-container">
+            <h3 className="profile-titles">Your Toolkit</h3>
+            <div className = "resource-card-profile">
+              <h3>Nothing to see here yet!</h3>
+              <h4>This is where the toolkit should go. I'm going to add a second div in here just to show you the scroll function. we can include as many 'cards' as we want.</h4>
+            </div>
+            <div className= "resource-card-profile">
+              <h3>this is card number 2</h3>
+            </div>
+            </div>
+
+            <div className = "card-container">
+            <h3 className="profile-titles">Your Comments</h3>
+            <div className = "resource-card-profile">
+              <h3>Nothing to see here yet!</h3>
+              <h4>This is where the comments *might* go</h4>
+            </div>
             </div>
           
       </div>

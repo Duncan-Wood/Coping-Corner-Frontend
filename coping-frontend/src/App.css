@@ -13,7 +13,9 @@
   min-height: 100vh;
   height: 100%;
 }
-
+h1{
+  letter-spacing: 10%;
+}
 button{
   font-family: Quicksand, sans-serif;
   font-size: 80%;
@@ -37,6 +39,7 @@ button:hover{
   background-color: var(--md-sys-color-surface-variant);
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
+  
 }
 
 .header-div-nli{
@@ -256,6 +259,14 @@ h1{
   line-height:2em;
 
 }
+.login{
+  background-color: var(--md-sys-color-tertiary);
+  color: var(--md-sys-color-on-tertiary);
+}
+.register{
+  background-color: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-on-secondary);
+}
 
 form button{
   margin-top:5px;
@@ -263,6 +274,9 @@ form button{
   color: var(--md-sys-color-on-primary-container);
   width: 50%;
   font-size: 1em;
+  margin-left:25%;
+  font-size: 20px;
+  font-weight:400;
 }
 
 form input{
@@ -276,6 +290,7 @@ form input{
   padding: 10px;
   font-weight:700;
 }
+
 
 .login-welcome{
   font-weight:400;
@@ -291,42 +306,86 @@ form input{
   margin-bottom:40px;
   color: var(--md-sys-color-secondary)
 }
+.reg-title{
+  margin-top:-20px;
+}
+/****Homepage*****/
+.homepage{
+  background-color: var(--md-sys-color-surface-variant);
+  padding: 50px;
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.mainlogo{
+  margin-top: -10px;
+  margin-left:-40px;
+  width:80%;
+}
+.main-text{
+margin-top:-10px;
+  font-size:400%;
+  color: var(--md-sys-color-tertiary);
+  text-align:left;
+  font-weight: 300;
+}
+.join {
+  text-align:right;
+  width: 100%;
+}
+.join span{
+  font-size:200%;
+  color: var(--md-sys-color-primary)
+}
+.herographic{
+  margin-top:-20px;
+  border-radius: 30px;
+  width:100%;
+  
 
+}
+/* .centertext{
+  float:left;
+  font-weight:400;
+  font-size:30px;
+  margin-left:-30px;
+} */
+#home-register-btn, .loginreg {
 
+  width: 8em;
+  height: 4em;
+  margin-right:20px;
+  margin-left:20px;
+  border: 1px solid var(--md-sys-color-outline);
+  margin-top:10px;
+  font-weight:200;
+  font-size: 20px;
+  background-color:var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
 
+.loginreg{
+width:fit-content;
+  height:3em;
+  background-color: var(--md-sys-color-background)
+}
 /*******ADD POST FORM****/
 
  .resourceDraft{
- width: 60%;
+  width: 60%;
   margin: 0 auto;
   border-radius:30px;
   background-color: var(--md-sys-color-tertiary);
   color:  var(--md-sys-color-on-tertiary);
   padding:20px;
-  display: flex;
-  flex-direction:column;
-
-
-
 }
-/*
-label{
-  font-weight:bold;
-}
+
 
 .typeCheckbox{
 
   width: 50%;
   margin: 0 auto;
 }
-.feelingCheckbox{
-  grid-area:3/1/5/5;
-  display:Flex;
-  align-items:center;
-  justify-content:center;
-  width: 50%;
-  margin: 0 auto;
-}
 
 
- */
+

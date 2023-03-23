@@ -43,6 +43,7 @@ export default function Main() {
         <Route path = "/toolkit" element={<Toolkit />} />
         <Route path = "/resources/detail/:id" element={<ResourceDetailPage/>}/>
         <Route path = "/emergency_resources" element={<EmergencyResources/>}/>
+        <Route exact path="/edit-profile" component={<EditProfile />} />
         <Route path= "resources/detail/edit/:id" element={<EditResource/>} />
 
         {/* <Route path="/resources" element={<Resources />}/> */}

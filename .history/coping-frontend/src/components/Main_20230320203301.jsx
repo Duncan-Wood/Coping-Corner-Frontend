@@ -10,11 +10,6 @@ import Profile from './Profile'
 import Post from './Post'
 import Toolkit from './Toolkit'
 import LoggedHome from './LoggedHome'
-import ResourceDetailPage from "./ResourceDetailPage";
-import EditResource from "./EditResource";
-
-import EmergencyResources from "./EmergencyResources";
-
 
 export default function Main() {
   // const [resources, setResources] = useState([])
@@ -41,9 +36,6 @@ export default function Main() {
         <Route path="/dashboard" element={<Dashboard />}/>
         <Route path="/post" element={<Post />}/>
         <Route path = "/toolkit" element={<Toolkit />} />
-        <Route path = "/resources/detail/:id" element={<ResourceDetailPage/>}/>
-        <Route path = "/emergency_resources" element={<EmergencyResources/>}/>
-        <Route path= "resources/detail/edit/:id" element={<EditResource/>} />
 
         {/* <Route path="/resources" element={<Resources />}/> */}
       </Routes>

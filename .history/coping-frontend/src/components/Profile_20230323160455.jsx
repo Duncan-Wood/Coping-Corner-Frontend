@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { GetResources } from "../Services/ResourceServices";
 import { CheckSession } from "../Services/Auth";
 import { UserProvider } from "../UserProvider";
 import { useNavigate } from "react-router-dom";

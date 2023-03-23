@@ -8,6 +8,8 @@ export default function Resources() {
   const { authenticated } = useContext(UserProvider);
 
   const { resources } = useContext(UserProvider);
+  const [filteredResources, setFilteredResources] = useState([])
+
 
   let navigate = useNavigate();
   const showResource = (index) => {
@@ -15,7 +17,7 @@ export default function Resources() {
   };
 
   //further if/else statements could be added to check if user has mood for dashboard
-  const filterResources = () => {
+  const showPublicResources = () => {
     let filtered = resources;
     //shows HQ resources if user is not logged in
     if (!user && !authenticated) {
@@ -24,7 +26,7 @@ export default function Resources() {
     return filtered;
   };
 
-  const filteredResources = filterResources();
+  const publicResources = showPublicResources();
 
   //What will display on Resources page if user is not logged in
   const publicResourcesContent = (
@@ -40,8 +42,8 @@ export default function Resources() {
           OR LOG IN NOW!
         </h5>
       </div>
-      {filteredResources.map((resource) => (
-        // console.log(filteredResources)
+      {publicResources.map((resource) => (
+        // console.log(publicResources)
         <div
           className="resource-card"
           key={resource.id}
@@ -66,8 +68,7 @@ export default function Resources() {
         <div className="logged_resources_header">
           <h1>POPULAR RESOURCES</h1>
         </div>
-        {filteredResources.map((resource) => (
-          // console.log(filteredResources)
+        {publicResources.map((resource) => (
           <div
             className="resource-card"
             key={resource.id}

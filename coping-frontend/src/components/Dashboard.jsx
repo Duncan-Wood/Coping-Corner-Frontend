@@ -5,6 +5,8 @@ import SearchBar from "./SearchBar";
 
 export default function Dashboard() {
   const { resources } = useContext(UserProvider);
+  const [filteredResources, setFilteredResources] = useState([])
+
   const { mood, setMood } = useContext(UserProvider);
   const [moodResources, setmoodResources] = useState([])
 
@@ -30,12 +32,15 @@ export default function Dashboard() {
       </button>
       <div>
         <div className="search-bar-container">
-          <SearchBar />
+          <SearchBar filteredResources={filteredResources} setFilteredResources={setFilteredResources}/>
         </div>
-        {moodResources.map(
-          (resource) => (
-            console.log(moodResources),
+        {resources.map(
+          (resource) => ( 
+            console.log(resources),
+            console.log(mood),
             (
+              <div className='resultsContainer'>
+                
               <div
                 className="resource-card"
                 key={resource.id}
@@ -51,6 +56,7 @@ export default function Dashboard() {
                   {/* <button>like</button> */}
                   <h6>{resource.likes} others love this!</h6>
                 </div>
+              </div>
               </div>
             )
           )

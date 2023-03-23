@@ -502,4 +502,16 @@ margin-top:-10px;
 
 }
 
+.detail-grid{
+  display:flex;
+  grid-template-columns: repeat(2,1fr);
+  width:90%;
+}
+.content{
 
+}
+.imageForDetail img{
+  width:50%;
+  border-radius:30px;
+  grid-column: 2 /span 1;
+}

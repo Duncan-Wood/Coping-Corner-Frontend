@@ -1,13 +1,14 @@
 import { useEffect, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserProvider } from "../UserProvider";
-// import SearchBar from "./SearchBar";
+import SearchBar from "./SearchBar";
 
 export default function Resources() {
   const { user } = useContext(UserProvider);
   const { authenticated } = useContext(UserProvider);
 
   const { resources } = useContext(UserProvider);
+  const [filteredResources, setFilteredResources] = useState([]);
 
   let navigate = useNavigate();
   const goBack = () => {
@@ -15,20 +16,24 @@ export default function Resources() {
     };
 
   const showResource = (index) => {
-    navigate(`/resources/detail/${index}`);
+    navigate(`/resources/detail/${index}`)
   };
 
   //further if/else statements could be added to check if user has mood for dashboard
-  const showPublicResources = () => {
+  const filterResources = () => {
     let filtered = resources;
     //shows HQ resources if user is not logged in
     if (!user && !authenticated) {
       filtered = filtered.filter((resource) => resource.user_id === 1);
+    } else if (filteredResources.length < 1) {
+      filtered = resources;
+    } else if (filteredResources) {
+      filtered = filteredResources;
     }
     return filtered;
   };
 
-  const publicResources = showPublicResources();
+  const publicResources = filterResources();
 
   //What will display on Resources page if user is not logged in
   const publicResourcesContent = (
@@ -74,10 +79,12 @@ export default function Resources() {
         <button id="go-back" onClick={goBack}>
         Go Back
       </button></div>
-        <div className="search-bar-container">
-          {/* <SearchBar handleSearch={handleSearch}/> */}
-          <h4>Search Bar Goes Here</h4>
-        </div>
+      <div className="search-bar-container">
+        <SearchBar
+          filteredResources={filteredResources}
+          setFilteredResources={setFilteredResources}
+        />
+      </div>
         <div className="logged_resources_header">
           <h1>RESOURCES</h1>
         </div>

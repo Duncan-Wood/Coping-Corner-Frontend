@@ -3,8 +3,6 @@ import { SignInUser } from "../Services/Auth";
 import { useNavigate,Link } from "react-router-dom";
 import { UserProvider } from "../UserProvider";
 
-
-
 export default function Login() {
     let navigate = useNavigate()
   const {setUser } = useContext(UserProvider);

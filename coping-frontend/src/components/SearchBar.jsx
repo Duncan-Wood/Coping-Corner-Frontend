@@ -1,8 +1,7 @@
 import { useContext, useState } from "react";
 import { UserProvider } from "../UserProvider";
 
-export default function SearchBar({ handleSearch }) {
-
+export default function SearchBar({ filteredResources, setFilteredResources }) {
   const { resources } = useContext(UserProvider);
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -17,7 +16,7 @@ export default function SearchBar({ handleSearch }) {
     { value: "grounding", label: "Grounding" },
     { value: "affirmation", label: "Affirmation" },
   ];
-  
+
   const feelingOptions = [
     { value: "angry", label: "Angry" },
     { value: "blah", label: "Blah" },
@@ -40,107 +39,94 @@ export default function SearchBar({ handleSearch }) {
     { value: "totally_distraught", label: "Totally Distraught" },
     { value: "very_anxious", label: "Very Anxious" },
   ];
-  const handleInputChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
 
   const handleTypeChange = (event) => {
-    const selectedValues = Array.from(
-      event.target.selectedOptions,
-      (option) => option.value
-    );
-    setSelectedTypes(selectedValues);
+    const typeToAdd = event.target.value;
+    if (selectedTypes.includes(typeToAdd)) {
+      const selectedValues = selectedTypes.filter((type) => type !== typeToAdd);
+      setSelectedTypes(selectedValues);
+      console.log(selectedValues);
+    } else {
+      const selectedValues = [...selectedTypes, typeToAdd];
+      setSelectedTypes(selectedValues);
+      console.log(selectedValues);
+    }
   };
 
   const handleFeelingChange = (event) => {
-    const selectedValues = Array.from(
-      event.target.selectedOptions,
-      (option) => option.value
-    );
-    setSelectedFeelings(selectedValues);
+    const feelingToAdd = event.target.value;
+    if (selectedFeelings.includes(feelingToAdd)) {
+      const selectedValues = selectedFeelings.filter(
+        (type) => type !== feelingToAdd
+      );
+      setSelectedFeelings(selectedValues);
+      console.log(selectedValues);
+    } else {
+      const selectedValues = [...selectedFeelings, feelingToAdd];
+      setSelectedFeelings(selectedValues);
+      console.log(selectedValues);
+    }
+  };
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value)
+    console.log(searchQuery)
   };
 
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    const filteredResources = resources
-      .filter((resource) => {
-        if (selectedTypes.length === 0) {
-          return true;
-        }
-        return selectedTypes.some((type) =>
-          resource.type.toLowerCase().includes(type.toLowerCase())
-        );
-      })
-      .filter((resource) => {
-        if (selectedFeelings.length === 0) {
-          return true;
-        }
-        return selectedFeelings.some((feeling) =>
-          resource.feeling.some((f) => f.toLowerCase().includes(feeling.toLowerCase()))
-        );
-      })
-      .filter((resource) =>
-        resource.content.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-    handleSearch(filteredResources);
-  };
-  
-function handleSearch(searchQuery, selectedTypes, selectedFeelings) {
-    const filteredResources = resources.filter((resource) => {
-      // Check if the resource's title or description contains the search query
-      const titleMatch = resource.title.toLowerCase().includes(searchQuery.toLowerCase());
-      const descriptionMatch = resource.description.toLowerCase().includes(searchQuery.toLowerCase());
-  
-      // Check if the resource's type matches any of the selected types
-      const typeMatch = selectedTypes.length === 0 || selectedTypes.includes(resource.type);
-  
-      // Check if the resource's feelings match any of the selected feelings
-      const feelingsMatch =
-        selectedFeelings.length === 0 ||
-        selectedFeelings.some((feeling) => resource.feelings.includes(feeling));
-  
-      return titleMatch || descriptionMatch || (typeMatch && feelingsMatch);
-    });
-  
-    // Call the handleSearch prop with the filtered resources
-    handleSearch(filteredResources);
-  }
+  // users = users.filter(obj => obj.name == filter.name && obj.address == filter.address)
+
+  //sending the form
+  //create an object that contains the searchQuery, selectedFeelings, and selectedTypes
+  //send that object to my resources
+  //check if any of the elements from that object match anything in the resource
+  // handle submit will send setFilteredResources
+  const handleSubmit = (event) => {
+  event.preventdefault()
+  const resourceFilter = resources.filter((resource) =>
+  resource.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+  resource.content.toLowerCase().includes(searchQuery.toLowerCase())
+  // resource.feelings.includes(searchQuery.toLowerCase())
+  );
+  setFilteredResources(resourceFilter)
+  console.log(filteredResources)
+}
 
   return (
-    <form onSubmit={handleFormSubmit}>
+    <form className="resourceDraft" onSubmit={handleSubmit}>
       <div>
         <label htmlFor="type">Type:</label>
-        <div>
-          <select
-            id="type"
-            multiple
-            value={selectedTypes}
-            onChange={handleTypeChange}
-          >
-            {typeOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
+        <div className="typeCheckbox">
+          {typeOptions.map((option) => (
+            <div key={option.value}>
+              <input
+                type="checkbox"
+                id={option.value}
+                name={option.value}
+                value={option.value}
+                checked={selectedTypes.includes(option.value)}
+                onChange={handleTypeChange}
+              />
+              <label htmlFor={option.value}>{option.label}</label>
+            </div>
+          ))}
         </div>
       </div>
 
       <div>
         <label htmlFor="feeling">Feeling:</label>
-        <div>
-          <select
-            id="feeling"
-            multiple
-            value={selectedFeelings}
-            onChange={handleFeelingChange}
-          >
-            {feelingOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
+        <div className="feelingCheckbox">
+          {feelingOptions.map((option) => (
+            <div key={option.value}>
+              <input
+                type="checkbox"
+                id={option.value}
+                name={option.value}
+                value={option.value}
+                checked={selectedFeelings.includes(option.value)}
+                onChange={handleFeelingChange}
+              />
+              <label htmlFor={option.value}>{option.label}</label>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -149,7 +135,7 @@ function handleSearch(searchQuery, selectedTypes, selectedFeelings) {
           type="text"
           id="search"
           value={searchQuery}
-          onChange={handleInputChange}
+          onChange={handleSearchChange}
           placeholder="Search..."
         />
       </div>

@@ -62,30 +62,20 @@ export default function ResourceDetailPage() {
             console.log(error);
         }
     }
-
-
     return(
         <div>
             {resource ? (
-                <div>
+                  <div className = "detail-grid">
 
-                    <div>
+
+                    <div className ="content">
                         <h1>{resource.title.toUpperCase()}</h1>
-                        <h4>{resource.type.join(', ')}</h4>
-                        <h5>for when you're feeling:</h5><h5> {resource.feeling.join(' ')}</h5>
-                        <h5>by {resource.User.username}</h5>
+                 <h4>{resource.type.join(', ')}</h4>
+                 <h5>for when you're feeling:</h5><h5> {resource.feeling.join(' ')}</h5>
+                 <h5>by {resource.User.username}</h5>
+                <h2 className="content">{resource.content}</h2>
+                <h3 className = "time">{resource.time_requirement} minutes</h3>
                     
-                    </div>
-                    
-                    <div>
-                        <h2>{resource.content}</h2>
-                        <h3>time: {resource.time_requirement}</h3>
-                    
-                    </div>
-                    <div>
-                        <img src={resource.optional_image} style={{ height: '500px', width: '700px'  }} />
-                    </div>
-
                     {added ? (
                         <button onClick={removeFromToolkit}>REMOVE FROM MY TOOLKIT</button>
                     ) : (
@@ -93,6 +83,12 @@ export default function ResourceDetailPage() {
                     )}
 
                         <button>EDIT RESOURCE</button>
+                    </div>
+                    
+            <div className = "imageForDetail">
+                <img src={resource.optional_image}/>
+            </div>
+
                 </div>
             ) : (
                 <p>Loading</p>

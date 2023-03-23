@@ -5,30 +5,42 @@ import SearchBar from "./SearchBar";
 
 export default function Dashboard() {
   const { resources } = useContext(UserProvider);
+  const [filteredResources, setFilteredResources] = useState([])
+
   const { mood, setMood } = useContext(UserProvider);
+  const [moodResources, setmoodResources] = useState([])
 
   let navigate = useNavigate();
-  const BackToMood = () => {
-    setMood(null);
-    navigate("/loggedhome");
+  const goBack = () => {
+    navigate(-1);
   };
+  
+  for (let i = 0; i < resources.length; i++){
+    if (resources[i].feeling.includes(mood)){
+      setmoodResources(...moodResources, resources[i])
+    }
+  }
+
   const showResource = (index) => {
     navigate(`/resources/detail/${index}`);
   };
 
   return (
     <div>
-      <button id="go-back" onClick={BackToMood}>
+      <button id="go-back" onClick={goBack}>
         Go Back
       </button>
       <div>
         <div className="search-bar-container">
-          <SearchBar />
+          <SearchBar filteredResources={filteredResources} setFilteredResources={setFilteredResources}/>
         </div>
         {resources.map(
-          (resource) => (
+          (resource) => ( 
             console.log(resources),
+            console.log(mood),
             (
+              <div className='resultsContainer'>
+                
               <div
                 className="resource-card"
                 key={resource.id}
@@ -44,6 +56,7 @@ export default function Dashboard() {
                   {/* <button>like</button> */}
                   <h6>{resource.likes} others love this!</h6>
                 </div>
+              </div>
               </div>
             )
           )

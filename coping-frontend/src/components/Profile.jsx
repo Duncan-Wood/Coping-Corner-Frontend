@@ -3,11 +3,13 @@ import { GetResources } from "../Services/ResourceServices";
 import { CheckSession } from "../Services/Auth";
 import { UserProvider } from "../UserProvider";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 
 function Profile() {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
+  const [userFavorites, setUserFavorites] = useState([]);
 
   const { resources } = useContext(UserProvider);
 
@@ -38,6 +40,29 @@ function Profile() {
     };
     fetchUser();
   }, []);
+
+  useEffect(() => {
+    const fetchFavorites = async () => {
+      try {
+
+        let payload = {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+
+        const res = await axios.get(
+          `http://localhost:3001/api/favorite/${user.id}`,
+          payload
+        )
+        setUserFavorites(res.data)
+        console.log(res)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchFavorites()
+  }, [user])
 
   //   const handleEditProfile = () => {
   //     window.location.href = '/EditProfile'
@@ -90,8 +115,19 @@ function Profile() {
             <div className = "card-container">
             <h3 className="profile-titles">Your Toolkit</h3>
             <div className = "resource-card-profile">
-              <h3>Nothing to see here yet!</h3>
-              <h4>This is where the toolkit should go. I'm going to add a second div in here just to show you the scroll function. we can include as many 'cards' as we want.</h4>
+            {userFavorites ? (
+        userFavorites.map((favorite) => {
+          return (
+            <div key={favorite.id}>
+              <h2> {favorite.Resource.title} </h2>
+              <p> {favorite.Resource.preview_text} </p>
+              <p> Time Requirement: {favorite.Resource.time_requirement} </p>
+            </div>
+            );
+            })
+            ) : (
+            <p>Loading...</p>
+            )}
             </div>
             <div className= "resource-card-profile">
               <h3>this is card number 2</h3>

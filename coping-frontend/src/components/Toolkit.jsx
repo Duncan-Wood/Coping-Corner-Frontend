@@ -61,7 +61,6 @@ export default function Tookit() {
       <h1> Your Toolkit </h1>
       {userFavorites ? (
         userFavorites.map((favorite) => {
-          console.log('favorite:', favorite); // add this console.log statement
           return (
             <div key={favorite.id}>
               <h2> {favorite.Resource.title} </h2>

@@ -125,10 +125,8 @@ function Profile() {
             </div>
           ))}
         </div>
-
         <div className="card-container">
           <h3 className="profile-titles">Your Toolkit</h3>
-          <div className="resource-card-profile">
             {userFavorites ? (
               userFavorites
               .sort((a, b) => b.time_favorited - a.time_favorited)
@@ -136,24 +134,34 @@ function Profile() {
               .map((favorite) => {
                 const resource = favorite.Resource
                 return (
-                  <div key={favorite.id}>
-                    <h2> {resource.title} </h2>
-                    <p> {resource.preview_text} </p>
-                    <p>
-                      {" "}
-                      Time Requirement: {
-                        resource.time_requirement
-                      }{" "}
-                    </p>
+                  <div className="resource-card-profile" key={favorite.id}>
+                    <h1> {resource.title} </h1>
+              <h5 className="resource-type">
+                <span className="category-for-card">TYPE</span>
+                {resource.type.join(", ")}{" "}
+              </h5>
+              <h5 className="resource-feeling">
+                {" "}
+                <span className="category-for-card">
+                  FOR WHEN YOU'RE FEELING
+                </span>
+                {resource.feeling.join(", ")}{" "}
+              </h5>
+              <h2 className="preview-text"> {resource.preview_text} </h2>
+              <div className="container-for-image">
+                <img className="small-img-card" src={resource.optional_image} />
+              </div>
+              <h5>
+                {" "}
+                <span className="category-for-card">TIME REQUIREMENT</span>
+                {resource.time_requirement} minutes{" "}
+              </h5>
                   </div>
                 );
               })
             ) : (
               <p>Loading...</p>
             )}
-          </div>
-          <div className="resource-card-profile">
-            <h3>this is card number 2</h3>
           </div>
         </div>
 
@@ -165,7 +173,6 @@ function Profile() {
             </div>
             </div> */}
       </div>
-    </div>
   );
 }
 

@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { CreateResource } from "../Services/ResourceServices";
 import { UserProvider } from "../UserProvider";
 
@@ -7,6 +7,7 @@ import { UserProvider } from "../UserProvider";
 export default function Post() {
   let navigate = useNavigate()
   const {user} = useContext(UserProvider);
+  const {authenticated}= useContext(UserProvider);
   const [typeArray, setTypeArray] = useState([])
   const [feelingArray, setFeelingArray] = useState([])
   const [formValues, setFormValues] = useState({
@@ -19,9 +20,9 @@ export default function Post() {
     optional_image: "",
     optional_link: ""
   })
-
-
-  const handleChange = (e) => {
+const goBack =()=>(navigate(-1));
+  
+const handleChange = (e) => {
     e.preventDefault()
     if (e.target.name !== "type" && e.target.name !== "feeling"){
     setFormValues({...formValues, [e.target.name]: e.target.value});
@@ -79,9 +80,12 @@ export default function Post() {
     });
     navigate(`/profile`);
   }
-
+if (authenticated)
   return (
     <div className = "addpost">
+       <button id="go-back" onClick={goBack}>
+        Go Back
+      </button>
       <h1>DRAFT A POST</h1>
 
       <form className="resourceDraft" onSubmit={handleSubmit} >
@@ -131,11 +135,6 @@ export default function Post() {
                 onChange={handleTypeChange} 
                 value="affirmation"/> 
                 <label htmlFor="affirmation">affirmation</label></li>
-       <li> <input  type="checkbox"
-                name="type"
-                onChange={handleTypeChange} 
-                value="emergency"/> 
-                <label htmlFor="affirmation">emergency</label></li>
     
         </ul>
 
@@ -310,6 +309,14 @@ export default function Post() {
 
 
       </form>
+      </div>)
+else{
+  return(
+    <div>
+    <h4>Please log-in to add a new post!</h4>
+    <Link to='/login'><button>Login</button></Link>
     </div>
-  )}
+  )
+
+}}
       

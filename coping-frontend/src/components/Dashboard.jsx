@@ -8,19 +8,26 @@ export default function Dashboard() {
   const [filteredResources, setFilteredResources] = useState([])
 
   const { mood, setMood } = useContext(UserProvider);
+  const [moodResources, setmoodResources] = useState([])
 
   let navigate = useNavigate();
-  const BackToMood = () => {
-    setMood(null);
-    navigate("/loggedhome");
+  const goBack = () => {
+    navigate(-1);
   };
+  
+  for (let i = 0; i < resources.length; i++){
+    if (resources[i].feeling.includes(mood)){
+      setmoodResources(...moodResources, resources[i])
+    }
+  }
+
   const showResource = (index) => {
     navigate(`/resources/detail/${index}`);
   };
 
   return (
     <div>
-      <button id="go-back" onClick={BackToMood}>
+      <button id="go-back" onClick={goBack}>
         Go Back
       </button>
       <div>

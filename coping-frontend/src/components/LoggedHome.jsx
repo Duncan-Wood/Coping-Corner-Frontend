@@ -11,13 +11,17 @@ export default function LoggedHome () {
         setMood(e.target.id)
         navigate("/dashboard")
     }
+    const goToEmergency =()=> {
+        setMood("emergency")
+        navigate("/emergency_resources")
+    }
     return (
         <div>
             {/* <h2>Hello!</h2> */}
             <h1>How are you feeling today? </h1>
             <div className = "mood-selection">
                 <div><h4>select one to start:</h4></div>
-                <div id="emergencydiv"><button id="emergency" className = "emergency-btn" onClick={goToDash}>It's an emergency - I need immediate assistance.</button></div>
+                <div id="emergencydiv"><button id="emergency" className = "emergency-btn" onClick={goToEmergency}>It's an emergency - I need immediate assistance.</button></div>
                 <div><button id="angry" className = "mood-btn" onClick={goToDash}>angry</button></div>
                 <div><button id="blah" className = "mood-btn" onClick={goToDash}>blah</button></div>
                 <div><button id="fine" className = "mood-btn" onClick={goToDash}>fine</button></div>

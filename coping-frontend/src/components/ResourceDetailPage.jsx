@@ -10,6 +10,7 @@ export default function ResourceDetailPage(){
     let {id} = useParams()
     let navigate= useNavigate();
     const {user} = useContext(UserProvider);
+    
     useEffect(() => {
         let selectedResource = async () => {
             const res = await axios.get('http://localhost:3001/api/resource/'+(id))
@@ -26,9 +27,9 @@ export default function ResourceDetailPage(){
     }
     return(
 
-        <div className = "detail-grid">
-            {resource ? (
         <div>
+        {resource ? (
+        <div className = "detail-grid">
         <div className ="content">         
                  <h1>{resource.title.toUpperCase()}</h1>
                  <h4>{resource.type.join(', ')}</h4>
@@ -36,12 +37,11 @@ export default function ResourceDetailPage(){
                  <h5>by {resource.User.username}</h5>
                 <h2 className="content">{resource.content}</h2>
                 <h3 className = "time">{resource.time_requirement} minutes</h3>
+                <button>ADD TO MY TOOLKIT</button>
         </div>
             <div className = "imageForDetail">
                 <img src={resource.optional_image}/>
             </div>
-            <button>ADD TO MY TOOLKIT</button>
-
      
          </div>
          ) : ( <p>loading</p>)      }

@@ -54,7 +54,7 @@ function Profile() {
   return (
     <div className="profile-page">
       <div className="header">
-        <h2> Welcome back, {user.username}! </h2>
+        <h2 className="welcome-back"> Welcome back, {user.username}! </h2>
         {/* <button onClick={ handleEditProfile }> Edit Profile </button> */}
       </div>
       <div className = "profile-grid">
@@ -67,10 +67,14 @@ function Profile() {
               key={resource.id}
               onClick={() => showResource(resource.id)}
             >
-              <h3> { resource.title } </h3>
-              <h5> { resource.type.join(", ") } </h5>
-              <h4> { resource.preview_text } </h4> 
-              <h5> Time Requirement: { resource.time_requirement } </h5>
+              <h1> { resource.title } </h1>
+              <h5 className = "resource-type"><span className = "category-for-card">TYPE</span>{ resource.type.join(", ") } </h5>
+              <h5 className = "resource-feeling"> <span className = "category-for-card">FOR WHEN YOU'RE FEELING</span>{ resource.feeling.join(", ") } </h5>
+              <h2 className = "preview-text"> { resource.preview_text } </h2> 
+              <div className = "container-for-image">
+                <img className= "small-img-card" src = {resource.optional_image}/>
+              </div>
+              <h5> <span className = "category-for-card">TIME REQUIREMENT</span>{ resource.time_requirement} minutes </h5>
             </div>
             ))}
             </div>
@@ -86,13 +90,13 @@ function Profile() {
             </div>
             </div>
 
-            <div className = "card-container">
+            {/* <div className = "card-container">
             <h3 className="profile-titles">Your Comments</h3>
             <div className = "resource-card-profile">
               <h3>Nothing to see here yet!</h3>
               <h4>This is where the comments *might* go</h4>
             </div>
-            </div>
+            </div> */}
           
       </div>
     </div>

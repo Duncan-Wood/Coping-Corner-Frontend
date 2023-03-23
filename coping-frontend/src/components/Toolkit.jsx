@@ -33,39 +33,43 @@ export default function Tookit() {
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:3001/api/favorite/${user.id}`,
-          {},
-          {
+
+        let payload = {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
           }
-        );
-        setUserFavorites(res.data);
-        console.log(res);
+
+        const res = await axios.get(
+          `http://localhost:3001/api/favorite/${user.id}`,
+          payload
+        )
+        setUserFavorites(res.data)
+        console.log(res)
       } catch (error) {
-        console.log(error);
+        console.log(error)
       }
-    };
-    console.log("user:", user);
-    fetchFavorites();
-  }, [id]);
+    }
+    fetchFavorites()
+  }, [user])
 
   return (
     <div>
-        <button id="go-back" onClick={goBack}>
+      <button id="go-back" onClick={goBack}>
         Go Back
       </button>
       <h1> Your Toolkit </h1>
       {userFavorites ? (
-        userFavorites.map((favorite) => (
-          <div key={favorite.id}>
-            <h2> {favorite.Resource.title} </h2>
-            <p> {favorite.Resource.preview_text} </p>
-            <p> Time Requirement: {favorite.Resource.time_requirement} </p>
-          </div>
-        ))
+        userFavorites.map((favorite) => {
+          console.log('favorite:', favorite); // add this console.log statement
+          return (
+            <div key={favorite.id}>
+              <h2> {favorite.Resource.title} </h2>
+              <p> {favorite.Resource.preview_text} </p>
+              <p> Time Requirement: {favorite.Resource.time_requirement} </p>
+            </div>
+          );
+        })
       ) : (
         <p>Loading...</p>
       )}

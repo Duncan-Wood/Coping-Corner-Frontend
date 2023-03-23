@@ -53,10 +53,13 @@ export default function ResourceDetailPage() {
 
     const removeFromToolkit = async () => {
         try {
-            const res = await axios.delete(`http://localhost:3001/api/favorite/${user.id}/${id}`, {}, {
+            let payload = {
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
-                }
+                  Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+              }
+            const res = await axios.delete(`http://localhost:3001/api/favorite/${user.id}/${id}`, payload, {
+         
             });
             console.log(res);
             setAdded(false);

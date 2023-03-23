@@ -14,6 +14,7 @@ export default function ResourceDetailPage() {
   const goBack = () => {
     navigate(-1);
   };
+
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -32,6 +33,30 @@ export default function ResourceDetailPage() {
     selectedResource();
     console.log(resource);
   }, [id]);
+
+  useEffect(() => {
+    const checkIfFavorite = async () => {
+      try {
+        let payload = {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        };
+        const res = await axios.get(
+          `http://localhost:3001/api/favorite/${user.id}/${id}`,
+          payload
+        );
+        setAdded(Boolean(res.data));
+        console.log(res.data)
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    if (user) {
+      checkIfFavorite();
+    }
+  }, [id, user]);
 
   const addToToolkit = async () => {
     try {

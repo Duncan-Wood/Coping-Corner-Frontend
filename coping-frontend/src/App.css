@@ -580,6 +580,7 @@ margin-top:-10px;
   margin: 20px;
   background-color: var(--md-sys-color-tertiary);
   color: var(--md-sys-color-on-tertiary);
+  padding:20px;
 }
 
 .dashboard-grid .resource-card .category-for-card{

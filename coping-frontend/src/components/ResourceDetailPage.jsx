@@ -132,11 +132,7 @@ export default function ResourceDetailPage() {
     }
     alert("resource deleted");
   };
-
   const showDelete = () => {
-    if (user.id === resource.User.id || user.username === 'ccadmin') {
-      return <button onClick={deleteResource}>Delete Resource</button>;
-
     if (user.id === resource.User.id) {
       return <button onClick={deleteResource}>DELETE RESOURCE</button>;
     }

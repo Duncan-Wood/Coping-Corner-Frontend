@@ -90,8 +90,7 @@ export default function Resources() {
         </div>
         <div className = "loggedin-resource-grid">
         {publicResources.map((resource) => (
-          <div className="resource-card" key={resource.id} onClick={() => showResource(resource.id)}
-          >
+          <div className="resource-card" key={resource.id} onClick={() => showResource(resource.id)}>
                   <h1 className = "loggedTitle"> {resource.title} </h1>
                   <span className="category-for-card">TYPE</span> <h5 className="resource-type">{resource.type.join(", ")} </h5>
                   <span className="category-for-card">FOR WHEN YOU'RE FEELING</span><h5 className="resource-feeling">{resource.feeling.join(", ")} </h5>

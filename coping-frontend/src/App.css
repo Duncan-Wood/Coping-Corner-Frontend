@@ -668,3 +668,21 @@ margin-top:-10px;
 .like-btn:hover{
   background-color:var(--md-sys-color-error);
 }
+
+.toolkit_main{
+  background-color: var(--md-sys-color-secondary);
+  border-radius:30px;
+  width:80%;
+  margin: 0 auto;
+  padding:20px;
+}
+.toolkit_main h1{
+  color: var(--md-sys-color-tertiary);
+  
+}
+
+.toolkit_main .resource-card{
+  width:40%;
+  margin:10px;
+  padding:5px;
+}

@@ -78,6 +78,16 @@ export default function ResourceDetailPage() {
         }
     }
 
+    const deleteResource = () => {
+        
+    }
+    const showDelete = () => {
+        if (user.id === resource.User.id) {
+            return <button onClick={deleteResource}>Delete Resource</button>
+        }
+    }
+     
+
     return (
         <div>
                 <button id="go-back" onClick={goBack}>
@@ -106,6 +116,9 @@ export default function ResourceDetailPage() {
                             )}
 
                             <button>EDIT RESOURCE</button>
+                            {console.log(user)}
+                            {console.log(resource)}
+                            {user ? showDelete(): null}
                         </div>
                     </div>
 

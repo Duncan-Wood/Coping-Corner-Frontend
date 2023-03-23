@@ -7,7 +7,7 @@ export default function Dashboard() {
   const { resources } = useContext(UserProvider);
   const [filteredResources, setFilteredResources] = useState([]);
 
-  const { mood, setMood } = useContext(UserProvider);
+  const { mood } = useContext(UserProvider);
 
   let navigate = useNavigate();
   const goBack = () => {
@@ -68,7 +68,7 @@ export default function Dashboard() {
             <h5 className="resource-feeling">{resource.feeling.join(", ")} </h5>
             <h2 className="preview-text"> {resource.preview_text} </h2>
             <div className="container-for-image">
-              <img className="small-img-card" src={resource.optional_image} />
+              <img className="small-img-card" src={resource.optional_image} alt="resource" />
             </div>
             <h5>
               {" "}

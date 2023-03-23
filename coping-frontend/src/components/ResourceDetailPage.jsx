@@ -8,10 +8,12 @@ export default function ResourceDetailPage() {
     const [user, setUser] = useState(null);
     const [resource, setResource] = useState(null);
     const [added, setAdded] = useState(false);
-    let {id} = useParams();
-    
+    let { id } = useParams();
+
     let navigate = useNavigate()
-  
+    const goBack = () => {
+        navigate(-1);
+      };
     useEffect(() => {
         const fetchUser = async () => {
             try {
@@ -63,8 +65,8 @@ export default function ResourceDetailPage() {
         }
     }
 
-    const likeResource = async() =>{
-        try{
+    const likeResource = async () => {
+        try {
             const res = await axios.put(`http://localhost:3001/api/resource/like/${id}`, {}, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -76,44 +78,43 @@ export default function ResourceDetailPage() {
         }
     }
 
-    return(
+    return (
         <div>
+                <button id="go-back" onClick={goBack}>
+        Go Back
+      </button>
             {resource ? (
-                <div>
+                <div className="detail-grid">
+                    <div className="content">
+                        <h1>{resource.title.toUpperCase()}</h1>
+                        <span className="category-for-card">TYPE</span>
+                        <h4>{resource.type.join(', ')}</h4>
+                        <span className="category-for-card">FOR WHEN YOU'RE FEELING...</span>
+                        <h4> {resource.feeling.join(' ')}</h4>
+                        <h5>by {resource.User.username}</h5>
+                        <h2 className="content">{resource.content}</h2>
+                        <span className="category-for-card">TIME REQUIREMENT</span>
+                        <h3 className="time">{resource.time_requirement} minutes</h3>
+                        <span className = "like-btn" onClick={likeResource}>ADD ♥</span>
+                        <h3>loved {resource.likes} times</h3>
 
-                    <div className ="content">
-                    <h1>{resource.title.toUpperCase()}</h1>
-                    <span className = "category-for-card">TYPE</span>
-                 <h4>{resource.type.join(', ')}</h4>
-                 <span className = "category-for-card">FOR WHEN YOU'RE FEELING...</span>
-                 <h4> {resource.feeling.join(' ')}</h4>
-                 <h5>by {resource.User.username}</h5>
-                <h2 className="content">{resource.content}</h2>
-                <span className = "category-for-card">TIME REQUIREMENT</span>
-                <h3 className = "time">{resource.time_requirement} minutes</h3>
-                <p onClick={likeResource}>add &#128153;</p>      <h3>loved {resource.likes} times</h3>   
+                        <div className="detail-buttons">
+                            {added ? (
+                                <button className="removefromtoolkit" onClick={removeFromToolkit}>REMOVE FROM MY TOOLKIT</button>
+                            ) : (
+                                <button className="addtotoolkit" onClick={addToToolkit}>ADD TO MY TOOLKIT</button>
+                            )}
 
-                    <div className = "detail-buttons">
-
-                    {added ? (
-                        <button className="removefromtoolkit" onClick={removeFromToolkit}>REMOVE FROM MY TOOLKIT</button>
-                    ) : (
-                        <button className="addtotoolkit" onClick={addToToolkit}>ADD TO MY TOOLKIT</button>
-                    )}
-
-                        <button>EDIT RESOURCE</button>
+                            <button>EDIT RESOURCE</button>
                         </div>
                     </div>
-                    
-            <div className = "imageForDetail">
-                <img src={resource.optional_image}/>
-            </div>
 
+                    <div className="imageForDetail">
+                        <img src={resource.optional_image} />
 
-                </div>
-            ) : (
-                <p>Loading</p>
-            )}
-        </div>
-    );
-}
+                    </div> </div>
+                    ) : (
+                    <p>Loading</p>)
+
+                     } </div>
+)}

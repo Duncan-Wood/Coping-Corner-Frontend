@@ -11,6 +11,10 @@ export default function Resources() {
   const [filteredResources, setFilteredResources] = useState([]);
 
   let navigate = useNavigate();
+  const goBack = () => {
+      navigate(-1);
+    };
+
   const showResource = (index) => {
     navigate(`/resources/detail/${index}`);
   };
@@ -63,6 +67,10 @@ export default function Resources() {
   if (user) {
     authenticatedResources = (
       <div className="user_feed">
+            <div>
+        <button id="go-back" onClick={goBack}>
+        Go Back
+      </button></div>
         <div className="search-bar-container">
           <SearchBar
             filteredResources={filteredResources}

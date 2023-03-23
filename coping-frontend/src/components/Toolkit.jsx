@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { CheckSession } from "../Services/Auth";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function Tookit() {
   const [loading, setLoading] = useState(true);
@@ -10,6 +10,11 @@ export default function Tookit() {
   const [error, setError] = useState(null);
   const [userFavorites, setUserFavorites] = useState([]);
   let { id } = useParams();
+
+  let navigate = useNavigate()
+  const goBack = () => {
+      navigate(-1);
+    };
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -49,6 +54,9 @@ export default function Tookit() {
 
   return (
     <div>
+        <button id="go-back" onClick={goBack}>
+        Go Back
+      </button>
       <h1> Your Toolkit </h1>
       {userFavorites ? (
         userFavorites.map((favorite) => (

@@ -8,7 +8,7 @@ export default function Resources() {
   const { authenticated } = useContext(UserProvider);
 
   const { resources } = useContext(UserProvider);
-  const [filteredResources, setFilteredResources] = useState([])
+  const [filteredResources, setFilteredResources] = useState([]);
 
   let navigate = useNavigate();
   const showResource = (index) => {
@@ -21,14 +21,13 @@ export default function Resources() {
     //shows HQ resources if user is not logged in
     if (!user && !authenticated) {
       filtered = filtered.filter((resource) => resource.user_id === 1);
-    } else if (filteredResources !== []) {
-      filtered = resources
+    } else if (filteredResources.length < 1) {
+      filtered = resources;
     } else if (filteredResources) {
-      filtered = filteredResources
+      filtered = filteredResources;
     }
     return filtered;
   };
-
 
   const publicResources = filterResources();
 
@@ -65,7 +64,11 @@ export default function Resources() {
     authenticatedResources = (
       <div className="user_feed">
         <div className="search-bar-container">
-        <SearchBar filteredResources={filteredResources} setFilteredResources={setFilteredResources}/>          <h4>Search Bar Goes Here</h4>
+          <SearchBar
+            filteredResources={filteredResources}
+            setFilteredResources={setFilteredResources}
+          />{" "}
+          <h4>Search Bar Goes Here</h4>
         </div>
         <div className="logged_resources_header">
           <h1>POPULAR RESOURCES</h1>

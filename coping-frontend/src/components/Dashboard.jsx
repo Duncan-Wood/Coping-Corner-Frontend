@@ -18,6 +18,18 @@ export default function Dashboard() {
     navigate(`/resources/detail/${index}`);
   };
 
+  const filterResources = () => {
+    let filtered;
+    if (filteredResources.length < 1) {
+      filtered = resources;
+    } else if (filteredResources) {
+      filtered = filteredResources;
+    }
+    return filtered;
+  };
+
+  const resourcesFilter = filterResources();
+
   return (
     <div>
       <button id="go-back" onClick={goBack}>
@@ -39,10 +51,11 @@ export default function Dashboard() {
 
       <div className="dashboard-grid">
         <h2 className="suggestions">
-          Here are some suggestions for tools to use when you're feeling {mood ?  <span>{mood}</span> : <span>anything</span>}:
+          Here are some suggestions for tools to use when you're feeling{" "}
+          {mood ? <span>{mood}</span> : <span>anything</span>}:
         </h2>
 
-        {resources.map((resource) => (
+        {resourcesFilter.map((resource) => (
           <div
             className="resource-card"
             key={resource.id}

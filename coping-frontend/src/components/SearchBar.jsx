@@ -132,7 +132,7 @@ export default function SearchBar({ filteredResources, setFilteredResources }) {
           placeholder="Search..."
         />
       </div>
-      <button type="submit">Search</button>
+      <button className = "submit-search-btn" type="submit">Search</button>
     </form>
   );
 }

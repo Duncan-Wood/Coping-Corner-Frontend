@@ -45,9 +45,9 @@ export default function ResourceDetailPage(){
             <div>
                 <img src={resource.optional_image} style={{ height: '500px', width: '700px'  }} />
                 
-                <button>ADD TO MY TOOLKIT</button>
+               
             </div>
-        
+            <button>ADD TO MY TOOLKIT</button>
 
      
          </div>

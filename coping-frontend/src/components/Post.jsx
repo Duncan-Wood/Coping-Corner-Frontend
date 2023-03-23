@@ -132,11 +132,6 @@ if (authenticated)
                 onChange={handleTypeChange} 
                 value="affirmation"/> 
                 <label htmlFor="affirmation">affirmation</label></li>
-       <li> <input  type="checkbox"
-                name="type"
-                onChange={handleTypeChange} 
-                value="emergency"/> 
-                <label htmlFor="affirmation">emergency</label></li>
     
         </ul>
 

@@ -12,19 +12,19 @@ Coping Corner is a full-stack `Postresql/Express/React/Node` application with us
 *Git administrator*<br/>
 [LinkedIn](https://www.linkedin.com/in/duncanwoodpro/) | 
 [Github](https://github.com/Duncan-Wood)
-<br/><br/>
+<br/>
 
 **Elliott Ventura**<br/>
 *Lead Backend*<br/>
 [LinkedIn](https://www.linkedin.com/in/elliottaventura/) | 
 [Github](https://github.com/eventura26/)
-<br/><br/>
+<br/>
 
 **Quinn Landry**<br/>
 *Lead Frontend*<br/>
 [LinkedIn](https://www.linkedin.com/in/quinn-landry-b24998235/) | 
 [Github](https://github.com/qrlandry)
-<br/><br/>
+<br/>
 
 **Yael Kaufman**<br/>
 *Lead Designer*<br/>
@@ -55,7 +55,7 @@ Coping Corner is a full-stack `Postresql/Express/React/Node` application with us
 - npm start to run app in localhost
 
 ## Future Updates
-Coping Corner was our first PERN app and it was created in one week. As a result, there is a lot more we would like to add!<br/>
+Coping Corner is our first PERN app and it was created in one week. As a result, there is a lot more we would like to add! For example:<br/>
 - Users can access comments with full CRUD operations
 - Users can edit the contents of their resources rather than only the likes
 - Users will be able to search through resources based on Types and Feelings in addition to Title and Content

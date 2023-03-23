@@ -10,10 +10,9 @@
 **Duncan Wood**<br/>
 *Git administrator*<br/>
 [LinkedIn](https://www.linkedin.com/in/duncanwoodpro/) | 
-[Github](https://github.com/Duncan-Wood)<br/>
-<pre>
+[Github](https://github.com/Duncan-Wood)
+<br/><br/>
 
-</pre>
 **Elliott Ventura**<br/>
 *Lead Backend*<br/>
 [LinkedIn](https://www.linkedin.com/in/elliottaventura/) | 

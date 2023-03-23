@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { CheckSession } from "../Services/Auth";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function ResourceDetailPage() {
   const [user, setUser] = useState(null);
@@ -11,6 +12,7 @@ export default function ResourceDetailPage() {
   let { id } = useParams();
 
   let navigate = useNavigate();
+
   const goBack = () => {
     navigate(-1);
   };
@@ -47,7 +49,7 @@ export default function ResourceDetailPage() {
           payload
         );
         setAdded(Boolean(res.data));
-        console.log(res.data)
+        console.log(res.data);
       } catch (error) {
         console.log(error);
       }
@@ -131,8 +133,10 @@ export default function ResourceDetailPage() {
     alert("resource deleted");
   };
   const showDelete = () => {
+
     if (user.id === resource.User.id || user.username === 'ccadmin'){
       return <button onClick={deleteResource}>Delete Resource</button>;
+
     }
   };
 
@@ -173,15 +177,17 @@ export default function ResourceDetailPage() {
                   ADD TO MY TOOLKIT
                 </button>
               )}
+              <Link to={resource.optional_link} target="_blank">
+                <button>Learn More</button>
+              </Link>
 
-              <button>EDIT RESOURCE</button>
               {console.log(user)}
               {console.log(resource)}
               {user ? showDelete() : null}
             </div>
           </div>
           <div className="imageForDetail">
-            <img src={resource.optional_image} alt='resource'/>
+            <img src={resource.optional_image} alt="resource" />
           </div>
         </div>
       ) : (

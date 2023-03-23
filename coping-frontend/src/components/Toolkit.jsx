@@ -66,7 +66,7 @@ export default function Tookit() {
         userFavorites.map((favorite) => {
           console.log(favorite)
           return (
-            <div className="resource-card" key={favorite.id} onClick={() => showResource(favorite.resource.id)}>
+            <div className="resource-card" key={favorite.id} onClick={() => showResource(favorite.Resource.id)}>
             <h1 className = "loggedTitle">{favorite.Resource.title} </h1>
             <span className="category-for-card">TYPE</span> <h5 className="resource-type">{favorite.Resource.type.join(", ")} </h5>
             <span className="category-for-card">FOR WHEN YOU'RE FEELING</span><h5 className="resource-feeling">{favorite.Resource.feeling.join(", ")} </h5>

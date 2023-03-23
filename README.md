@@ -53,5 +53,8 @@ Coping Corner is a full-stack `Postresql/Express/React/Node` application with us
 - npm install to install necessary components
 - npm start to run app in localhost
 
+## Check Out Our Backend!
+[Coping Corner Backend](https://github.com/Duncan-Wood/Coping-Corner-Backend)
+
 ## Contribution Guidelines
 We are honored that you would like to contribute to our app! Please contact any member on our team using the links above for any inquiries, to report bugs, or to propose improvements.

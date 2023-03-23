@@ -5,7 +5,7 @@
 [Coping Corner has not yet been deployed!](https://media.tenor.com/bXaqMucdvMYAAAAd/when-the-coping-is-too-strong-cope.gif)
 
 ## Description
-Coping Corner is a full-stack `Postresql/Express/React/Node` application with user authentication. Users are able to create an account and log in securely with their credentials. This application is made to create a community for those who are struggling to cope with their mental state and find resources to help them along their mental health journey. Users can add resources to their 'Toolkit' as well as add likes to resources that they find helpful. Also, users can post their own resources to be viewed and accessed by other users of Coping Corner. (We are often more likely to resonate with advice from our peers than from outsiders, so Coping Corner is meant to facilitate these connections and make a real impact on those who struggle with their mental health.)
+Coping Corner is a full-stack `Postresql/Express/React/Node` application with user authentication. Users are able to create an account and log in securely with their credentials. This application is made to create a community for those who are struggling to cope with their mental state and find resources to help them along their mental health journey. Users can add resources to their 'Toolkit,' as well as add likes to resources that they find helpful. Also, users can post their own resources to be viewed and accessed by other users of Coping Corner. We are often more likely to resonate with advice from our peers than from outsiders, so Coping Corner is meant to facilitate these connections and make a real impact on those who struggle with their mental health.
 
 ## Our Team
 **Duncan Wood**<br/>

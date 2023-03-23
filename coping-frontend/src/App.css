@@ -447,7 +447,7 @@ margin-top:-10px;
 }
 
 /******resources*****/
-.resource-card{
+.resource-card, .emergency-card{
   background-color:lightblue;
   min-height: 100px;
   max-height: fit-content;
@@ -455,6 +455,10 @@ margin-top:-10px;
   display:inline-block;
   margin:5px;
   border-radius:30px;
+}
+
+.emergency-card{
+  background-color: palevioletred;
 }
 
 .profile-grid{

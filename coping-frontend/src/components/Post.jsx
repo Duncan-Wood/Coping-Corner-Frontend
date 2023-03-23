@@ -20,9 +20,9 @@ export default function Post() {
     optional_image: "",
     optional_link: ""
   })
-
-
-  const handleChange = (e) => {
+const goBack =()=>(navigate(-1));
+  
+const handleChange = (e) => {
     e.preventDefault()
     if (e.target.name !== "type" && e.target.name !== "feeling"){
     setFormValues({...formValues, [e.target.name]: e.target.value});
@@ -83,6 +83,9 @@ export default function Post() {
 if (authenticated)
   return (
     <div className = "addpost">
+       <button id="go-back" onClick={goBack}>
+        Go Back
+      </button>
       <h1>DRAFT A POST</h1>
 
       <form className="resourceDraft" onSubmit={handleSubmit} >

@@ -8,9 +8,9 @@ export default function Dashboard() {
   const { mood, setMood } = useContext(UserProvider);
 
   let navigate = useNavigate();
-  const BackToMood = () => {
+  const goBack = () => {
     setMood(null);
-    navigate("/loggedhome");
+    navigate(-1);
   };
   const showResource = (index) => {
     navigate(`/resources/detail/${index}`);
@@ -18,7 +18,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      <button id="go-back" onClick={BackToMood}>
+      <button id="go-back" onClick={goBack}>
         Go Back
       </button>
       <div>

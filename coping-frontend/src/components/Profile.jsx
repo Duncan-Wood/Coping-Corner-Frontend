@@ -49,7 +49,7 @@ function Profile() {
 
   const sortResources = resources.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-  const mostRecentResource = sortResources.slice(0, 5);
+  const mostRecentResource = sortResources.slice(0, 1)[0];
 
   return (
     <div className="profile-page">
@@ -61,18 +61,16 @@ function Profile() {
         
           <div className = "card-container">
             <h3 className="profile-titles">Recent Resources</h3>
-            {mostRecentResource.map(resource => (
             <div
               className="resource-card-profile"
-              key={resource.id}
-              onClick={() => showResource(resource.id)}
+              key={mostRecentResource.id}
+              onClick={() => showResource(mostRecentResource.id)}
             >
-              <h3> { resource.title } </h3>
-              <h5> { resource.type.join(", ") } </h5>
-              <h4> { resource.preview_text } </h4> 
-              <h5> Time Requirement: { resource.time_requirement } </h5>
+              <h3> { mostRecentResource.title } </h3>
+              <h5> { mostRecentResource.type.join(", ") } </h5>
+              <h4> { mostRecentResource.preview_text } </h4> 
+              <h5> Time Requirement: { mostRecentResource.time_requirement } </h5>
             </div>
-            ))}
             </div>
 
             <div className = "card-container">

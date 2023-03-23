@@ -16,17 +16,15 @@
 **Elliott Ventura**<br/>
 *Lead Backend*<br/>
 [LinkedIn](https://www.linkedin.com/in/elliottaventura/) | 
-[Github](https://github.com/eventura26/)<br/>
-<pre>
+[Github](https://github.com/eventura26/)
+<br/><br/>
 
-</pre>
 **Quinn Landry**<br/>
 *Lead Frontend*<br/>
 [LinkedIn](https://www.linkedin.com/in/quinn-landry-b24998235/) | 
-[Github](https://github.com/qrlandry)<br/>
-<pre>
+[Github](https://github.com/qrlandry)
+<br/><br/>
 
-</pre>
 **Yael Kaufman**<br/>
 *Lead Designer*<br/>
 [LinkedIn](https://www.linkedin.com/in/yael-kaufman/) | 

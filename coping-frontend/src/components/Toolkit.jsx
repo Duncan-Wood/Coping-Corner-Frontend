@@ -24,6 +24,7 @@ export default function Tookit() {
         const user = await CheckSession();
         setUser(user);
         setLoading(false);
+        console.log(user)
       } catch (error) {
         setError(error);
         setLoading(false);

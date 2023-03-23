@@ -45,11 +45,9 @@ export default function SearchBar({ filteredResources, setFilteredResources }) {
     if (selectedTypes.includes(typeToAdd)) {
       const selectedValues = selectedTypes.filter((type) => type !== typeToAdd);
       setSelectedTypes(selectedValues);
-      console.log(selectedValues);
     } else {
       const selectedValues = [...selectedTypes, typeToAdd];
       setSelectedTypes(selectedValues);
-      console.log(selectedValues);
     }
   };
 
@@ -60,35 +58,30 @@ export default function SearchBar({ filteredResources, setFilteredResources }) {
         (type) => type !== feelingToAdd
       );
       setSelectedFeelings(selectedValues);
-      console.log(selectedValues);
     } else {
       const selectedValues = [...selectedFeelings, feelingToAdd];
       setSelectedFeelings(selectedValues);
-      console.log(selectedValues);
     }
   };
   const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value)
-    console.log(searchQuery)
+    setSearchQuery(event.target.value);
   };
 
-  // users = users.filter(obj => obj.name == filter.name && obj.address == filter.address)
-
-  //sending the form
-  //create an object that contains the searchQuery, selectedFeelings, and selectedTypes
-  //send that object to my resources
-  //check if any of the elements from that object match anything in the resource
-  // handle submit will send setFilteredResources
   const handleSubmit = (event) => {
-  event.preventdefault()
-  const resourceFilter = resources.filter((resource) =>
-  resource.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-  resource.content.toLowerCase().includes(searchQuery.toLowerCase())
-  // resource.feelings.includes(searchQuery.toLowerCase())
-  );
-  setFilteredResources(resourceFilter)
-  console.log(filteredResources)
-}
+    event.preventDefault();
+    const resourceFilter = resources.filter(
+      (resource) =>
+      resource.title.includes('Aromatherapy')
+        // resource.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        // resource.content.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        // resource.type.some(selectedTypes) ||
+        // resource.feelings.some(selectedFeelings) 
+    );
+    setFilteredResources(resourceFilter);
+    // console.log(resources);
+
+    console.log(filteredResources);
+  };
 
   return (
     <form className="resourceDraft" onSubmit={handleSubmit}>

@@ -71,7 +71,7 @@ Coping Corner is our first PERN app, and it was created in just one week. As a r
 
 ## Check Out Our Backend!
 
-To see the code for the backend of Coping Corner, visit the following link:
+To see the code for the backend of Coping Corner, visit the following link:<br/>
 [Coping Corner Backend](https://github.com/Duncan-Wood/Coping-Corner-Backend)
 
 ## Contribution Guidelines

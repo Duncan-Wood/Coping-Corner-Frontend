@@ -80,6 +80,11 @@ button:hover{
   justify-content:flex-end;
   margin-right:20px;
 }
+.nav-btn .emergency-nav, .nav-btn-nli .emergency-nav{
+  background-color: var(--md-sys-color-error-container);
+  color: var(--md-sys-color-error);
+  border: 3px solid var(--md-sys-color-error);
+}
 
 .nav-btn button:hover{
   border: 3px solid var(--md-sys-color-primary-container)
@@ -558,6 +563,7 @@ margin-top:-10px;
 }
 .addtotoolkit, .removefromtoolkit{
   margin-right:5px;
+  margin-top:20px;
 }
 .removefromtoolkit{
   color:var(--md-sys-color-on-tertiary-container);
@@ -649,4 +655,16 @@ margin-top:-10px;
   width: 30%;
   margin: 0 20px;
 
+}
+
+.like-btn{
+  background-color: black;
+  color:white;
+  width:fit-content;
+  border-radius:30px;
+  padding: 10px;
+  margin-bottom: 50px;   
+}
+.like-btn:hover{
+  background-color:var(--md-sys-color-error);
 }

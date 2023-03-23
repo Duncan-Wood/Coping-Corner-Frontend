@@ -19,6 +19,7 @@ export default function Nav(){
                     <Link to='/post'><button>+ add post</button></Link>
                     <Link to='/toolkit'><button>toolkit</button></Link>
                     <Link to='/resources'><button>resources</button></Link>
+                    <Link to='/emergency_resources'><button className="emergency-nav">emergency</button></Link>
                     <Link to='/'><button onClick={handleLogOut}>logout</button></Link>
                 </div>
             </div>
@@ -31,6 +32,7 @@ export default function Nav(){
             <div><h1>COPING CORNER</h1></div>
             <div className = "nav-btn-nli">
             <Link to='/resources'><button>resources</button></Link>
+            <Link to='/emergency_resources'><button className="emergency-nav">emergency</button></Link>
             <Link to='/login'><button>login</button></Link>
             <Link to='/register'><button id="register">register</button></Link>
             </div>

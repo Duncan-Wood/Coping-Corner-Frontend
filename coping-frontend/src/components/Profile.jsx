@@ -15,6 +15,10 @@ function Profile() {
 
   let navigate = useNavigate();
 
+  const goBack = () => {
+      navigate(-1);
+    };
+
   const showResource = (index) => {
     navigate(`/resources/detail/${index}`);
   };
@@ -53,6 +57,10 @@ function Profile() {
 
   return (
     <div className="profile-page">
+          <div>
+        <button id="go-back" onClick={goBack}>
+        Go Back
+      </button></div>
       <div className="header">
         <h2 className="welcome-back"> Welcome back, {user.username}! </h2>
         {/* <button onClick={ handleEditProfile }> Edit Profile </button> */}

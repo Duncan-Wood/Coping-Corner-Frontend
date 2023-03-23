@@ -11,7 +11,9 @@ export default function ResourceDetailPage() {
     let { id } = useParams();
 
     let navigate = useNavigate()
-
+    const goBack = () => {
+        navigate(-1);
+      };
     useEffect(() => {
         const fetchUser = async () => {
             try {
@@ -78,6 +80,9 @@ export default function ResourceDetailPage() {
 
     return (
         <div>
+                <button id="go-back" onClick={goBack}>
+        Go Back
+      </button>
             {resource ? (
                 <div className="detail-grid">
                     <div className="content">
@@ -90,8 +95,9 @@ export default function ResourceDetailPage() {
                         <h2 className="content">{resource.content}</h2>
                         <span className="category-for-card">TIME REQUIREMENT</span>
                         <h3 className="time">{resource.time_requirement} minutes</h3>
-                        <p onClick={likeResource}>add &#128153;</p>
+                        <span className = "like-btn" onClick={likeResource}>ADD ♥</span>
                         <h3>loved {resource.likes} times</h3>
+
                         <div className="detail-buttons">
                             {added ? (
                                 <button className="removefromtoolkit" onClick={removeFromToolkit}>REMOVE FROM MY TOOLKIT</button>

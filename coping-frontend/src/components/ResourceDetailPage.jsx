@@ -27,7 +27,7 @@ export default function ResourceDetailPage() {
 
     useEffect(() => {
         const selectedResource = async () => {
-            const res = await axios.get('http://localhost:3001/api/resource/' + id);
+            const res = await axios.get(`http://localhost:3001/api/resource/${id}`);
             setResource(res.data);
             // console.log(res);
             // console.log(res.data.title);
@@ -62,20 +62,43 @@ export default function ResourceDetailPage() {
             console.log(error);
         }
     }
+
+    const likeResource = async() =>{
+        try{
+            const res = await axios.put(`http://localhost:3001/api/resource/like/${id}`, {}, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            })
+            setResource(prevResource => ({ ...prevResource, likes: prevResource.likes + 1 }));
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return(
         <div>
             {resource ? (
-                  <div className = "detail-grid">
+                <div>
 
-
-                    <div className ="content">
+                    <div>
                         <h1>{resource.title.toUpperCase()}</h1>
-                 <h4>{resource.type.join(', ')}</h4>
-                 <h5>for when you're feeling:</h5><h5> {resource.feeling.join(' ')}</h5>
-                 <h5>by {resource.User.username}</h5>
-                <h2 className="content">{resource.content}</h2>
-                <h3 className = "time">{resource.time_requirement} minutes</h3>
+                        <h4>{resource.type.join(', ')}</h4>
+                        <h5>for when you're feeling:</h5><h5> {resource.feeling.join(' ')}</h5>
+                        <h5>by {resource.User.username}</h5>
                     
+                    </div>
+                    
+                    <div>
+                        <h2>{resource.content}</h2>
+                        <h3>time: {resource.time_requirement}</h3>                 
+                    </div>
+                    <div>
+                        <img src={resource.optional_image} style={{ height: '500px', width: '700px'  }} />
+                    </div>
+
+              <p onClick={likeResource}>add &#128153;</p>      <h3>loved {resource.likes} times</h3>   
+
                     {added ? (
                         <button onClick={removeFromToolkit}>REMOVE FROM MY TOOLKIT</button>
                     ) : (
@@ -83,12 +106,6 @@ export default function ResourceDetailPage() {
                     )}
 
                         <button>EDIT RESOURCE</button>
-                    </div>
-                    
-            <div className = "imageForDetail">
-                <img src={resource.optional_image}/>
-            </div>
-
                 </div>
             ) : (
                 <p>Loading</p>

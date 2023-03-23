@@ -7,21 +7,21 @@
 ## Description
 
 ## Our Team
-###### Duncan Wood
+#### Duncan Wood
 **Git administrator**
-[LinkedIn](https://www.linkedin.com/in/duncanwoodpro/)
+[LinkedIn](https://www.linkedin.com/in/duncanwoodpro/)<br/>
 [Github](https://github.com/Duncan-Wood)
-###### Elliott Ventura
+#### Elliott Ventura
 **Lead Backend**
-[LinkedIn](https://www.linkedin.com/in/elliottaventura/)
+[LinkedIn](https://www.linkedin.com/in/elliottaventura/)<br/>
 [Github](https://github.com/eventura26/)
-###### Quinn Landry
+#### Quinn Landry
 **Lead Frontend**
-[LinkedIn](https://www.linkedin.com/in/quinn-landry-b24998235/)
+[LinkedIn](https://www.linkedin.com/in/quinn-landry-b24998235/)<br/>
 [Github](https://github.com/qrlandry)
-###### Yael Kaufman
+#### Yael Kaufman
 **Lead Designer**
-[LinkedIn](https://www.linkedin.com/in/yael-kaufman/)
+[LinkedIn](https://www.linkedin.com/in/yael-kaufman/)<br/>
 [Github](https://github.com/ykallday)
 
 ## Technologies Used

@@ -36,8 +36,8 @@ export default function Dashboard() {
         </div>
         {resources.map(
           (resource) => ( 
-            console.log(resources),
-            console.log(mood),
+            // console.log(resources),
+            // console.log(mood),
             (
               <div className='resultsContainer'>
                 

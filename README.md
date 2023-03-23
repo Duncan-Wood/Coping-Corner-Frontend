@@ -10,15 +10,15 @@
 **Duncan Wood**<br/>
 *Git administrator*<br/>
 [LinkedIn](https://www.linkedin.com/in/duncanwoodpro/) | 
-[Github](https://github.com/Duncan-Wood)
+[Github](https://github.com/Duncan-Wood)<br/>
 **Elliott Ventura**
 *Lead Backend*<br/>
 [LinkedIn](https://www.linkedin.com/in/elliottaventura/) | 
-[Github](https://github.com/eventura26/)
+[Github](https://github.com/eventura26/)<br/>
 **Quinn Landry**
 *Lead Frontend*<br/>
 [LinkedIn](https://www.linkedin.com/in/quinn-landry-b24998235/) | 
-[Github](https://github.com/qrlandry)
+[Github](https://github.com/qrlandry)<br/>
 **Yael Kaufman**
 *Lead Designer*<br/>
 [LinkedIn](https://www.linkedin.com/in/yael-kaufman/) | 

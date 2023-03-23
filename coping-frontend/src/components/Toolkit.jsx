@@ -15,7 +15,9 @@ export default function Tookit() {
   const goBack = () => {
       navigate(-1);
     };
-
+    const showResource = (index) => {
+      navigate(`/resources/detail/${index}`);
+    };
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -59,19 +61,41 @@ export default function Tookit() {
         Go Back
       </button>
       <h1> Your Toolkit </h1>
+      <div className = "toolkit_main">
       {userFavorites ? (
         userFavorites.map((favorite) => {
+          console.log(favorite)
           return (
-            <div key={favorite.id}>
-              <h2> {favorite.Resource.title} </h2>
-              <p> {favorite.Resource.preview_text} </p>
-              <p> Time Requirement: {favorite.Resource.time_requirement} </p>
+            <div className="resource-card" key={favorite.id} onClick={() => showResource(resource.id)}>
+            <h1 className = "loggedTitle">{favorite.Resource.title} </h1>
+            <span className="category-for-card">TYPE</span> <h5 className="resource-type">{favorite.Resource.type.join(", ")} </h5>
+            <span className="category-for-card">FOR WHEN YOU'RE FEELING</span><h5 className="resource-feeling">{favorite.Resource.feeling.join(", ")} </h5>
+            <h2 className="preview-text"> {favorite.Resource.preview_text} </h2>
+            <div className="container-for-image">
+                    <img className="small-img-card" src={favorite.Resource.optional_image} alt='resource' />
+              </div>
+              <h5> <span className="category-for-card">TIME REQUIREMENT</span>{favorite.Resource.time_requirement} minutes </h5>
+              <div className="likes-container">
+                  <h5>{favorite.Resource.likes} people love this!</h5>
+              </div>
             </div>
           );
         })
       ) : (
         <p>Loading...</p>
       )}
-    </div>
+    </div></div>
   );
 }
+
+
+
+       
+                 
+                  
+                  
+         
+                  
+                
+                 
+          

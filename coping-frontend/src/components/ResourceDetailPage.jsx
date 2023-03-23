@@ -1,11 +1,15 @@
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
+import { UserProvider } from "../UserProvider";
+import { useNavigate } from "react-router-dom";
+
 export default function ResourceDetailPage(){
     
     const [resource, setResource] = useState(null)
     let {id} = useParams()
-
+    let navigate= useNavigate();
+    const {user} = useContext(UserProvider);
     useEffect(() => {
         let selectedResource = async () => {
             const res = await axios.get('http://localhost:3001/api/resource/'+(id))
@@ -17,6 +21,9 @@ export default function ResourceDetailPage(){
         console.log(resource)
     },[id])
 
+    const addToKit = (id) => {
+        navigate (`/favorite/${user.id}/${id}/`)
+    }
     return(
 
         <div>
@@ -40,7 +47,7 @@ export default function ResourceDetailPage(){
             </div>
         
 
-            <button>ADD TO MY TOOLKIT</button>
+            <button onClick={addToKit(resource.id)}>ADD TO MY TOOLKIT</button>
          </div>
          ) : ( <p>loading</p>)      }
          </div>

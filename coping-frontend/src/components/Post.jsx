@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { CreateResource } from "../Services/ResourceServices";
 import { UserProvider } from "../UserProvider";
 
@@ -7,6 +7,7 @@ import { UserProvider } from "../UserProvider";
 export default function Post() {
   let navigate = useNavigate()
   const {user} = useContext(UserProvider);
+  const {authenticated}= useContext(UserProvider);
   const [typeArray, setTypeArray] = useState([])
   const [feelingArray, setFeelingArray] = useState([])
   const [formValues, setFormValues] = useState({
@@ -79,7 +80,7 @@ export default function Post() {
     });
     navigate(`/profile`);
   }
-
+if (authenticated)
   return (
     <div className = "addpost">
       <h1>DRAFT A POST</h1>
@@ -310,6 +311,14 @@ export default function Post() {
 
 
       </form>
+      </div>)
+else{
+  return(
+    <div>
+    <h4>Please log-in to add a new post!</h4>
+    <Link to='/login'><button>Login</button></Link>
     </div>
-  )}
+  )
+
+}}
       

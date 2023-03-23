@@ -69,20 +69,24 @@ export default function ResourceDetailPage() {
 
 
                     <div className ="content">
-                        <h1>{resource.title.toUpperCase()}</h1>
+                    <h1>{resource.title.toUpperCase()}</h1>
+                    <span className = "category-for-card">TYPE</span>
                  <h4>{resource.type.join(', ')}</h4>
-                 <h5>for when you're feeling:</h5><h5> {resource.feeling.join(' ')}</h5>
+                 <span className = "category-for-card">FOR WHEN YOU'RE FEELING...</span>
+                 <h4> {resource.feeling.join(' ')}</h4>
                  <h5>by {resource.User.username}</h5>
                 <h2 className="content">{resource.content}</h2>
+                <span className = "category-for-card">TIME REQUIREMENT</span>
                 <h3 className = "time">{resource.time_requirement} minutes</h3>
-                    
+                    <div className = "detail-buttons">
                     {added ? (
-                        <button onClick={removeFromToolkit}>REMOVE FROM MY TOOLKIT</button>
+                        <button className="removefromtoolkit" onClick={removeFromToolkit}>REMOVE FROM MY TOOLKIT</button>
                     ) : (
-                        <button onClick={addToToolkit}>ADD TO MY TOOLKIT</button>
+                        <button className="addtotoolkit" onClick={addToToolkit}>ADD TO MY TOOLKIT</button>
                     )}
 
                         <button>EDIT RESOURCE</button>
+                        </div>
                     </div>
                     
             <div className = "imageForDetail">

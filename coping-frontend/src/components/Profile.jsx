@@ -125,6 +125,7 @@ function Profile() {
             </div>
           ))}
         </div>
+
         <div className="card-container">
           <h3 className="profile-titles">Your Toolkit</h3>
             {userFavorites ? (
@@ -134,7 +135,9 @@ function Profile() {
               .map((favorite) => {
                 const resource = favorite.Resource
                 return (
-                  <div className="resource-card-profile" key={favorite.id}>
+                  <div className="resource-card-profile" 
+                  key={favorite.id}
+                  onClick={() => showResource(resource.id)}>
                     <h1> {resource.title} </h1>
               <h5 className="resource-type">
                 <span className="category-for-card">TYPE</span>

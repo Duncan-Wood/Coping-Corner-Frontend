@@ -1,4 +1,4 @@
-import { useEffect, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserProvider } from "../UserProvider";
 import SearchBar from "./SearchBar";
@@ -59,7 +59,7 @@ export default function Resources() {
                 <span className="category-for-card">FOR WHEN YOU'RE FEELING</span><h5 className="resource-feeling">{resource.feeling.join(", ")} </h5>
                 <h2 className="preview-text"> {resource.preview_text} </h2>
                 <div className="container-for-image">
-                  <img className="small-img-card" src={resource.optional_image} />
+                  <img className="small-img-card" src={resource.optional_image} alt="resource" />
                 </div>
                 <h5> <span className="category-for-card">TIME REQUIREMENT</span>{resource.time_requirement} minutes </h5>
                 <div className="likes-container">
@@ -97,7 +97,7 @@ export default function Resources() {
                   <span className="category-for-card">FOR WHEN YOU'RE FEELING</span><h5 className="resource-feeling">{resource.feeling.join(", ")} </h5>
                   <h2 className="preview-text"> {resource.preview_text} </h2>
                   <div className="container-for-image">
-                    <img className="small-img-card" src={resource.optional_image} />
+                    <img className="small-img-card" src={resource.optional_image} alt='resource' />
                   </div>
                   <h5> <span className="category-for-card">TIME REQUIREMENT</span>{resource.time_requirement} minutes </h5>
                   <div className="likes-container">

@@ -8,7 +8,16 @@
 
 ## Description
 
-Coping Corner is a full-stack application built with `Postresql/Express/React/Node` featuring user authentication and full CRUD operations. The application aims to create a community for individuals who struggle to cope with their mental state and provide resources to help them along their mental health journey. Users can create an account and log in securely with their credentials. They can add resources to their "Toolkit" and like resources that they find helpful. Additionally, users can post their own resources to be viewed and accessed by other Coping Corner users. The resources feature has full CRUD operations. Coping Corner aims to facilitate connections among individuals who may resonate with the advice of their peers more than outsiders and make a positive impact on those who struggle with their mental health.
+Coping Corner is a full-stack application built with `Postresql/Express/React/Node` featuring user authentication and full CRUD operations. The application aims to create a community for individuals who struggle to cope with their mental state and provide resources to help them along their mental health journey.
+
+### Features
+
+- Users can create an account and log in securely with their credentials.
+- Users can add resources to their "Toolkit" and like resources that they find helpful.
+- Users can post their own resources to be viewed and accessed by other Coping Corner users.
+- The resources feature has full CRUD operations.<br/>
+
+Coping Corner aims to facilitate connections among individuals who may resonate with the advice of their peers more than outsiders and make a positive impact on those who struggle with their mental health.
 
 ## Our Team
 
@@ -39,15 +48,31 @@ _Lead Designer_<br/>
 
 The following technologies were used in the development of Coping Corner:
 
+#### Planning and Design
+
 - [Trello for planning and task management](https://trello.com/invite/b/vzAJQUFd/ATTI9d3cab6c4f204d0d75bb72145054a1bb99FE994F/anxiety-force)
-- Javascript, HTML, & CSS
-- React, a JavaScript library for building user interfaces
-- Axios, a promise-based HTTP client for the browser and Node.js
+- [Component Heirarchy Diagram for Frontend](https://drive.google.com/file/d/1x32JOKyBpQXL9IdHsP5k_P7gJKf-Wosn/view?usp=sharing)
+- [Entity Relationship Diagram for Backend](https://drive.google.com/file/d/1IlY-HsyaeVoatjgp1F9K9AE_cs2q4IMz/view?usp=sharing)
 - Vanessa Trine Therapy Services for the resource cards
 - Midjourney AI for the logo design
 - Photoshop for refining the design
 - Material Design Builder for the design palettes
 - ChatGPT AI for debugging and rubberducking
+
+#### Frontend
+
+- Javascript, HTML, & CSS
+- React, a JavaScript library for building user interfaces
+- Axios, a promise-based HTTP client for the browser and Node.js
+
+#### Backend
+
+- Node.js, a JavaScript runtime for building server-side applications
+- Express, a web application framework for Node.js
+- PostgresSQL, an open-source relational database management system
+- Sequelize, a promise-based ORM for Node.js and PostgreSQL
+- Nodemon, a utility for auto-restarting the server during development
+- JSON Web Tokens (JWT) and bcrypt, for secure authentication and password hashing
 
 ## Getting Started
 
@@ -55,8 +80,8 @@ To get started with Coping Corner, follow these steps:
 
 1. Fork and clone this repository in your CLI
 2. Navigate to the directory you just cloned
-3. Run npm install to install necessary components
-4. Run npm start to run the app in localhost
+3. Run `npm install` to install necessary components
+4. Run `npm start` to run the app in localhost
 
 ## Future Updates
 

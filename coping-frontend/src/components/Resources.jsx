@@ -8,8 +8,6 @@ export default function Resources() {
   const { authenticated } = useContext(UserProvider);
 
   const { resources } = useContext(UserProvider);
-  const [filteredResources, setFilteredResources] = useState([])
-
 
   let navigate = useNavigate();
   const showResource = (index) => {

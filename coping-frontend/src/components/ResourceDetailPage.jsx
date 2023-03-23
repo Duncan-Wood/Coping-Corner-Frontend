@@ -27,7 +27,7 @@ export default function ResourceDetailPage() {
 
     useEffect(() => {
         const selectedResource = async () => {
-            const res = await axios.get('http://localhost:3001/api/resource/' + id);
+            const res = await axios.get(`http://localhost:3001/api/resource/${id}`);
             setResource(res.data);
             // console.log(res);
             // console.log(res.data.title);
@@ -62,11 +62,24 @@ export default function ResourceDetailPage() {
             console.log(error);
         }
     }
+
+    const likeResource = async() =>{
+        try{
+            const res = await axios.put(`http://localhost:3001/api/resource/like/${id}`, {}, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            })
+            setResource(prevResource => ({ ...prevResource, likes: prevResource.likes + 1 }));
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return(
         <div>
             {resource ? (
-                  <div className = "detail-grid">
-
+                <div>
 
                     <div className ="content">
                     <h1>{resource.title.toUpperCase()}</h1>
@@ -78,7 +91,10 @@ export default function ResourceDetailPage() {
                 <h2 className="content">{resource.content}</h2>
                 <span className = "category-for-card">TIME REQUIREMENT</span>
                 <h3 className = "time">{resource.time_requirement} minutes</h3>
+                <p onClick={likeResource}>add &#128153;</p>      <h3>loved {resource.likes} times</h3>   
+
                     <div className = "detail-buttons">
+
                     {added ? (
                         <button className="removefromtoolkit" onClick={removeFromToolkit}>REMOVE FROM MY TOOLKIT</button>
                     ) : (
@@ -92,6 +108,7 @@ export default function ResourceDetailPage() {
             <div className = "imageForDetail">
                 <img src={resource.optional_image}/>
             </div>
+
 
                 </div>
             ) : (

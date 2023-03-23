@@ -1,49 +1,102 @@
-import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-export default function ResourceDetailPage(){
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { CheckSession } from "../Services/Auth";
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
+export default function ResourceDetailPage() {
+    const [user, setUser] = useState(null);
+    const [resource, setResource] = useState(null);
+    const [added, setAdded] = useState(false);
+    let {id} = useParams();
     
-    const [resource, setResource] = useState(null)
-    let {id} = useParams()
+    let navigate = useNavigate()
+  
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const user = await CheckSession();
+                setUser(user);
+                // console.log(user)
+                // console.log(user.id)
+            } catch (error) {
+            }
+        };
+        fetchUser();
+    }, []);
 
     useEffect(() => {
-        let selectedResource = async () => {
-            const res = await axios.get('http://localhost:3001/api/resource/'+(id))
-            setResource(res.data)
-            console.log(res)
-            console.log(res.data.title)
+        const selectedResource = async () => {
+            const res = await axios.get('http://localhost:3001/api/resource/' + id);
+            setResource(res.data);
+            // console.log(res);
+            // console.log(res.data.title);
         }
-        selectedResource()
-        console.log(resource)
-    },[id])
+        selectedResource();
+        console.log(resource);
+    }, [id]);
+
+    const addToToolkit = async () => {
+        try {
+            const res = await axios.post(`http://localhost:3001/api/favorite/add/${user.id}/${id}`, {}, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            });
+            console.log(res);
+            setAdded(true);
+        } catch (error) {
+        }
+    }
+
+    const removeFromToolkit = async () => {
+        try {
+            const res = await axios.delete(`http://localhost:3001/api/favorite/${user.id}/${id}`, {}, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            });
+            console.log(res);
+            setAdded(false);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 
     return(
-
         <div>
             {resource ? (
-        <div>
+                <div>
 
-=         <div>
-                 <h1>{resource.title.toUpperCase()}</h1>
-                 <h4>{resource.type.join(', ')}</h4>
-                 <h5>for when you're feeling:</h5><h5> {resource.feeling.join(' ')}</h5>
-                 <h5>by {resource.User.username}</h5>
-            </div>
+                    <div>
+                        <h1>{resource.title.toUpperCase()}</h1>
+                        <h4>{resource.type.join(', ')}</h4>
+                        <h5>for when you're feeling:</h5><h5> {resource.feeling.join(' ')}</h5>
+                        <h5>by {resource.User.username}</h5>
+                    
+                    </div>
+                    
+                    <div>
+                        <h2>{resource.content}</h2>
+                        <h3>time: {resource.time_requirement}</h3>
+                    
+                    </div>
+                    <div>
+                        <img src={resource.optional_image} style={{ height: '500px', width: '700px'  }} />
+                    </div>
 
-            <div>
-                <h2>{resource.content}</h2>
-                <h3>{resource.time_requirement}</h3>
-            </div>
+                    {added ? (
+                        <button onClick={removeFromToolkit}>REMOVE FROM MY TOOLKIT</button>
+                    ) : (
+                        <button onClick={addToToolkit}>ADD TO MY TOOLKIT</button>
+                    )}
 
-            <div>
-                <img src={resource.optional_image} style={{ height: '500px', width: '700px'  }} />
-            </div>
-        
-
-            <button>ADD TO MY TOOLKIT</button>
-         </div>
-         ) : ( <p>loading</p>)      }
-         </div>
-            
-    )
+                        <button>EDIT RESOURCE</button>
+                </div>
+            ) : (
+                <p>Loading</p>
+            )}
+        </div>
+    );
 }

@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserProvider } from "../UserProvider";
 import SearchBar from "./SearchBar";
+import defaultImg from '../assets/coping corner logo.png'
 
 export default function Resources() {
   const { user } = useContext(UserProvider);
@@ -10,6 +11,7 @@ export default function Resources() {
   const [filteredResources, setFilteredResources] = useState([]);
 
   let navigate = useNavigate();
+  
   const goBack = () => {
     navigate(-1);
   };
@@ -59,11 +61,17 @@ export default function Resources() {
             <h5 className="resource-feeling">{resource.feeling.join(", ")} </h5>
             <h2 className="preview-text"> {resource.preview_text} </h2>
             <div className="container-for-image">
+            {resource.optional_image ? (
               <img
                 className="small-img-card"
                 src={resource.optional_image}
                 alt="resource"
-              />
+              /> ) : (
+              <img
+                className="small-img-card"
+                src={defaultImg}
+                alt="default resource"
+              />)}
             </div>
             <h5>
               {" "}
@@ -113,11 +121,17 @@ export default function Resources() {
               </h5>
               <h2 className="preview-text"> {resource.preview_text} </h2>
               <div className="container-for-image">
-                <img
-                  className="small-img-card"
-                  src={resource.optional_image}
-                  alt="resource"
-                />
+              {resource.optional_image ? (
+              <img
+                className="small-img-card"
+                src={resource.optional_image}
+                alt="resource"
+              /> ) : (
+              <img
+                className="small-img-card"
+                src={defaultImg}
+                alt="default resource"
+              />)}
               </div>
               <h5>
                 {" "}

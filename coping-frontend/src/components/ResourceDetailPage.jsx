@@ -4,6 +4,7 @@ import { CheckSession } from "../Services/Auth";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import defaultImg from '../assets/coping corner logo.png'
 
 export default function ResourceDetailPage() {
   const [user, setUser] = useState(null);
@@ -175,7 +176,14 @@ export default function ResourceDetailPage() {
             </div>
           </div>
           <div className="imageForDetail">
-            <img src={resource.optional_image} alt="resource" />
+            {resource.optional_image ?(
+            <img src={resource.optional_image} 
+                 alt="resource" 
+            /> ) : (
+            <img 
+                 src={defaultImg}
+                 alt="resource" 
+                 />)}
           </div>
         </div>
       ) : (

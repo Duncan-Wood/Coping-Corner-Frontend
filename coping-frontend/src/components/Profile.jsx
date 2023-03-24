@@ -5,13 +5,11 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Profile() {
-  // initialize states
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
   const [userFavorites, setUserFavorites] = useState([]);
 
-  // import context
   const { resources } = useContext(UserProvider);
   let navigate = useNavigate();
 
@@ -19,29 +17,24 @@ function Profile() {
     navigate(-1);
   };
 
-  // navigate to detail page when a resource is clicked
   const showResource = (index) => {
     navigate(`/resources/detail/${index}`);
   };
 
-  // fetch users data
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const user = await CheckSession();
         setUser(user);
         setLoading(false);
-        console.log(user);
       } catch (error) {
         setError(error);
         setLoading(false);
       }
-      console.log(user);
     };
     fetchUser();
   }, []);
 
-  // fetch resource data
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
@@ -56,10 +49,7 @@ function Profile() {
           payload
         );
         setUserFavorites(res.data);
-        console.log(res);
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
     fetchFavorites();
   }, [user]);
@@ -72,12 +62,10 @@ function Profile() {
     return <p> Error: {error.message} </p>;
   }
 
-  // sorts the resources by newest date
   const sortResources = resources.sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );
 
-  // storing the 5 most recent resources
   const mostRecentResource = sortResources.slice(0, 5);
 
   return (
@@ -128,7 +116,6 @@ function Profile() {
           <h3 className="profile-titles">Your Toolkit</h3>
           {userFavorites ? (
             userFavorites
-              // sort and store the 5 most recently favorited resources
               .sort((a, b) => b.time_favorited - a.time_favorited)
               .slice(0, 5)
               .map((favorite) => {
@@ -173,14 +160,6 @@ function Profile() {
           )}
         </div>
       </div>
-
-      {/* <div className = "card-container">
-            <h3 className="profile-titles">Your Comments</h3>
-            <div className = "resource-card-profile">
-              <h3>Nothing to see here yet!</h3>
-              <h4>This is where the comments *might* go</h4>
-            </div>
-            </div> */}
     </div>
   );
 }

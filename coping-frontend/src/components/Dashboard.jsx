@@ -6,10 +6,10 @@ import SearchBar from "./SearchBar";
 export default function Dashboard() {
   const { resources } = useContext(UserProvider);
   const [filteredResources, setFilteredResources] = useState([]);
-
   const { mood } = useContext(UserProvider);
 
   let navigate = useNavigate();
+  
   const goBack = () => {
     navigate(-1);
   };
@@ -76,8 +76,6 @@ export default function Dashboard() {
               {resource.time_requirement} minutes{" "}
             </h5>
             <div className="likes-container">
-              {/* <h6>star</h6> */}
-              {/* <button>like</button> */}
               <h6>{resource.likes} others love this!</h6>
             </div>
           </div>

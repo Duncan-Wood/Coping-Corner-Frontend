@@ -440,6 +440,7 @@ margin-top:-10px;
 
 .contentbox{
   width:80%;
+  text-indent: 20px;
   border-radius:30px;
   height:100px;
     background-color:var(--md-sys-color-background);
@@ -481,6 +482,7 @@ margin-top:-10px;
 }
 .card-container{
   overflow:scroll;
+  overflow-x: hidden;
   margin: 5px;
   height: 600px;
   border-radius:30px;

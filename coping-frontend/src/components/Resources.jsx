@@ -10,7 +10,6 @@ export default function Resources() {
   const [filteredResources, setFilteredResources] = useState([]);
 
   let navigate = useNavigate();
-  
   const goBack = () => {
     navigate(-1);
   };

@@ -4,13 +4,14 @@ import { CheckSession } from "../Services/Auth";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import defaultImg from '../assets/coping corner logo.png'
 
 export default function ResourceDetailPage() {
   const [user, setUser] = useState(null);
   const [resource, setResource] = useState(null);
   const [added, setAdded] = useState(false);
+  
   let { id } = useParams();
-
   let navigate = useNavigate();
 
   const goBack = () => {
@@ -33,7 +34,6 @@ export default function ResourceDetailPage() {
       setResource(res.data);
     };
     selectedResource();
-    console.log(resource);
   }, [id]);
 
   useEffect(() => {
@@ -49,9 +49,7 @@ export default function ResourceDetailPage() {
           payload
         );
         setAdded(Boolean(res.data));
-        console.log(res.data);
       } catch (error) {
-        console.log(error);
       }
     };
 
@@ -71,7 +69,6 @@ export default function ResourceDetailPage() {
           },
         }
       );
-      console.log(res);
       setAdded(true);
     } catch (error) {}
   };
@@ -88,10 +85,8 @@ export default function ResourceDetailPage() {
         payload,
         {}
       );
-      console.log(res);
       setAdded(false);
     } catch (error) {
-      console.log(error);
     }
   };
 
@@ -111,7 +106,6 @@ export default function ResourceDetailPage() {
         likes: prevResource.likes + 1,
       }));
     } catch (error) {
-      console.log(error);
     }
   };
 
@@ -125,18 +119,16 @@ export default function ResourceDetailPage() {
           },
         }
       );
-      console.log(res);
       await goBack();
     } catch (error) {
-      console.log(error);
     }
     alert("resource deleted");
   };
+  
   const showDelete = () => {
 
     if (user.id === resource.User.id || user.username === 'ccadmin'){
-      return <button onClick={deleteResource}>Delete Resource</button>;
-
+      return <button onClick={deleteResource}>Delete Resource</button>
     }
   };
 
@@ -180,14 +172,18 @@ export default function ResourceDetailPage() {
               <Link to={resource.optional_link} target="_blank">
                 <button>Learn More</button>
               </Link>
-
-              {console.log(user)}
-              {console.log(resource)}
               {user ? showDelete() : null}
             </div>
           </div>
           <div className="imageForDetail">
-            <img src={resource.optional_image} alt="resource" />
+            {resource.optional_image ?(
+            <img src={resource.optional_image} 
+                 alt="resource" 
+            /> ) : (
+            <img 
+                 src={defaultImg}
+                 alt="resource" 
+                 />)}
           </div>
         </div>
       ) : (

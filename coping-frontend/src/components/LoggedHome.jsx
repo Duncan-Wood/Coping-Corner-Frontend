@@ -17,7 +17,6 @@ export default function LoggedHome () {
     }
     return (
         <div>
-            {/* <h2>Hello!</h2> */}
             <h1>How are you feeling today? </h1>
             <div className = "mood-selection">
                 <div><h4>select one to start:</h4></div>

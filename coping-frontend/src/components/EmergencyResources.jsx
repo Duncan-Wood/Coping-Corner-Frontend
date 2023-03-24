@@ -1,6 +1,8 @@
+import {useNavigate} from 'react-router-dom'
+
 export default function EmergencyResources() {
 
-
+    let navigate = useNavigate();
     const goBack = () => {
         navigate(-1);
     };

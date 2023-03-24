@@ -62,6 +62,7 @@ export default function Tookit() {
       <h1> Your Toolkit </h1>
       <div className="toolkit_main">
         {userFavorites ? (
+          console.log(userFavorites),
           userFavorites.map((favorite) => {
             return (
               <div className="resource-card" key={favorite.id} onClick={() => showResource(favorite.Resource.id)}>

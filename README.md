@@ -53,7 +53,7 @@ The following technologies were used in the development of Coping Corner:
 - [Trello for planning and task management](https://trello.com/invite/b/vzAJQUFd/ATTI9d3cab6c4f204d0d75bb72145054a1bb99FE994F/anxiety-force)
 - [Wireframe for Frontend](https://www.figma.com/file/30YRmaWCsQal0QVK50vjW5/Coping-Corner-Wireframe?node-id=0%3A1&t=L4EH7Nx7oakKIpgP-1)
 - [Component Heirarchy Diagram for Frontend](https://drive.google.com/file/d/1x32JOKyBpQXL9IdHsP5k_P7gJKf-Wosn/view?usp=sharing)
-- [Entity Relationship Diagram for Backend](https://drive.google.com/file/d/1IlY-HsyaeVoatjgp1F9K9AE_cs2q4IMz/view?usp=sharing)
+- [Entity Relationship Diagram for Backend](https://drive.google.com/file/d/1xzsw9a2XM1jgR1SRkmyitNWQ-sZKzJIo/view?usp=sharing)
 - Vanessa Trine Therapy Services for the resource cards
 - Midjourney AI for the logo design
 - Photoshop for refining the design
